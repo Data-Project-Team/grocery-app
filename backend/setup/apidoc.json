@@ -1,0 +1,1 @@
+{"apidoc":{"name":"apidoc-example","version":"0.3.0","description":"example project","title":"Custom apiDoc browser title","url":"https:\/\/api.github.com\/v1","header":{"title":"My own header title","filename":""},"footer":{"title":"My own footer title","filename":""},"template":{"withCompare":true,"withGenerator":true}}}
