@@ -27,5 +27,21 @@ export class ApiService {
      
     })
   }
+  getData(action:any, data: any)  {
+    var httpHeader = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
+    };
+    const payload = this.apikey+'&actions='+ action + data;
+    return new Promise((resolve, rejects)=>{
+      try {
+        this.http.post(this.serverUrl, payload, httpHeader).subscribe((res: any)=>{
+          resolve(res);
+        });
+      } catch (error) {
+        rejects(error);
+      }
+     
+    })
+  }
 
 }
