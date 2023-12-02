@@ -66,7 +66,7 @@ include SYS_LIBRARY.DS."lib.connect.php";
 include SYS_LIBRARY.DS."lib.sql.php";
 include SYS_LIBRARY.DS."lib.crypt.php";
 include SYS_LIBRARY.DS."lib.onesignal.php";
-include SYS_LIBRARY.DS."lib.smartpay.php";
+
 
 spl_autoload_register(function ($class_name) {
     include SYS_CLASSES.DS. $class_name . '.php';
