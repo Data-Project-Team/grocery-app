@@ -1,13 +1,69 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img class="logo" src="/assets/icon/grocera-logo.png" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h1 class="welcome-txt">Welcome Back!</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form >
+          <div class="input one"> 
+            <ion-input  expand="block" class="email" type="email" name="email" placeholder="Email"></ion-input>
+          </div>
+          <div class="input two">
+            <ion-input expand="block" class="password" type="password" name="password" placeholder="Password"></ion-input>
+          </div>
+        </form>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="container">
+          <div class="forgot">Forgot password?</div>
+          <div>
+            <ion-checkbox label-placement="end" class="remember">Remember me</ion-checkbox>
+          </div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button  class="login-btn" expand="block" fill="clear" shape="round">
+          Log in
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="text">Or Login in with social account</div>
+        <div class="social">
+          <ion-button class="social-btn" id="google">
+            <ion-icon slot="icon-only" src="assets/icon/google.svg"></ion-icon>
+          </ion-button>
+          <ion-button class="social-btn" id="facebook">
+            <ion-icon slot="icon-only" src="assets/icon/facebook.svg"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="text noAccount">Don't have an account? <a> SIGN UP</a> </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
