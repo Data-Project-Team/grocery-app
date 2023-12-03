@@ -1,0 +1,71 @@
+* {
+  font-family: "rubik-medium";
+}
+
+.logo {
+  height: 115px;
+}
+
+ion-grid {
+  padding: 0 20px;
+}
+
+.input {
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.input.one {
+  margin-bottom: 20px;
+}
+
+.container {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+  padding: 10px 8px;
+  color: hsl(0, 0%, 45%);
+}
+
+.login-btn {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.text {
+  font-size: 15px;
+  font-family: 'rubik-regular';
+  font-weight: 600;
+  text-align: center;
+  color: hsl(0, 0%, 25%);
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+
+.social-btn {
+  --background: white;
+  --border-radius: 50%;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 50px;
+  width: 50px;
+}
+
+.noAccount {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 12px;
+
+  a {
+    text-decoration: none;
+    color: #185951;
+    font-family: "rubik-medium";
+  }
+}
