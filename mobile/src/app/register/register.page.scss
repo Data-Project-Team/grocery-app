@@ -1,0 +1,57 @@
+* {
+  font-family: "rubik-medium";
+}
+
+.logo {
+  height: 115px;
+}
+
+ion-grid {
+  padding: 0 20px;
+}
+
+.input {
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.input.one, .input.two {
+  margin-bottom: 20px;
+}
+
+.signup-btn {
+  padding-top: 10px;
+  padding-bottom: 27px;
+}
+
+.text {
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'rubik-regular';
+  font-weight: 600;
+  text-align: center;
+  color: hsl(0, 0%, 25%);
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+
+.social-btn {
+  --background: white;
+  --border-radius: 50%;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 50px;
+  width: 50px;
+}
+
+.haveAccount {
+  font-size: 13px;
+  float: right;
+  padding-bottom: 8px;
+}
