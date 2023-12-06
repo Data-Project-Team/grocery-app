@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { IonicModule } from "@ionic/angular";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
+import { ProductCardComponent } from "./product-card/product-card.component";
+
 
 @NgModule ({
     imports:[
@@ -11,7 +13,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations:[],
-    exports:[]
+    declarations:[ProductCardComponent],
+    exports:[ProductCardComponent]
 }) 
 export class ComponentsModule {}
