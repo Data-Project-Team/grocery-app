@@ -1,0 +1,50 @@
+.search{
+    display: flex;
+    border-width: 1px;
+    border-radius: 15px;
+    border-style : solid;
+    border-color: #cdcdcd;
+    align-items: center;
+    padding: 5px 0;
+  
+    ion-input{
+        --padding-start: 5px;
+        --background: #ffffff;
+       
+    }
+
+    ion-icon{
+       padding: 5px;
+    }
+   
+}
+input, textarea{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0;
+    
+}
+textarea {
+    background-color:#FFFFFF !important;
+}
+
+.search-menu{
+    display: block;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+ion-list{
+    border-radius: 10px;
+}
+.text{
+    padding:5px;
+    font-size: 14px;
+    line-height: 32px;
+    transition: all 0.13s;
+
+}
