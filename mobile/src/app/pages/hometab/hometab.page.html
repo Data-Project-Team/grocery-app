@@ -1,13 +1,99 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>hometab</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">hometab</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col>
+        <div class="searchbar">
+          //implement search here
+        </div>
+       
+      </ion-col>
+      
+    </ion-row>
+    <ion-row class="advertrow">
+      <ion-col class="advertcol">
+        <swiper-container 
+          
+          >
+          <swiper-slide 
+          class="advertslider" 
+          *ngFor="let item of [1,2,3]">
+            
+          </swiper-slide>
+        </swiper-container>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none" class="titleslot ion-no-padding">
+          <h1 slot="start" class="title">Categories</h1>
+          <span slot="end" class="seeall">See All</span>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="categrow" size="auto">
+        <div class="scroll" >
+          <div class="catname"  *ngFor="let category of categories">
+            <div>
+              {{category.name}}
+            </div>
+          </div>
+          
+        </div>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class="itemsrow">
+      <ion-col size="12">
+        <ion-item lines="none" class="titleslot ion-no-padding">
+          <h1 slot="start" class="title">Trending</h1>
+          <span slot="end" class="seeall">See All</span>
+        </ion-item>
+          
+        <div class="scroll" *ngIf="!isLoading">
+          <div class="skelItem" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+            <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </div>
+          
+         
+        </div>
+          
+        
+        <div class="scroll" *ngIf="isLoading">
+
+          <div class="itemdiv" *ngFor="let trend of trending;" >
+            <app-product-card [item]="trend" [style]="'home'"></app-product-card>
+          </div>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row class="itemsrow">
+      <ion-col size="12">
+        <ion-item lines="none" class="titleslot ion-no-padding">
+          <h1 slot="start" class="title">Sale</h1>
+          <span slot="end" class="seeall">See All</span>
+        </ion-item>
+        <div class="scroll" *ngIf="!isLoading">
+          <div class="skelItem" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+            <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </div>
+          
+         
+        </div>
+        <div class="scroll" *ngIf="isLoading">
+          <div class="itemdiv" *ngFor="let i of onSale" >
+            <app-product-card [item]="i" [style]="'home'"></app-product-card>
+          </div>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
 </ion-content>
