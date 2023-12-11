@@ -1,13 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>hometab</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">hometab</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="ion-padding">
+    <ion-row>
+      <ion-col>
+        <div class="searchbar">
+          <app-search></app-search><button  class="filter-btn"><ion-icon src="assets\settings-sliders.svg"></ion-icon></button>
+        </div>
+       
+      </ion-col>
+      
+    </ion-row>
+   
+    
+  </ion-grid>
 </ion-content>
