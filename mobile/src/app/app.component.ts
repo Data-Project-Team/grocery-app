@@ -19,5 +19,13 @@ export class AppComponent {
     });
     
     }
+  //   const key = localStorage.getItem("usr_apikey");
+  //   const id = localStorage.getItem("usr_code");
+  //   if (key && id !== '1') {
+  //     this.router.navigate(['pages/home'],{replaceUrl: true});
+  //   }else{
+  //     this.router.navigate(['login'],{replaceUrl: true});
+  //   }
   }
+
 }

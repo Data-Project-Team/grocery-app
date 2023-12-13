@@ -36,7 +36,7 @@
         <div class="scroll" >
           <div class="catname"  *ngFor="let category of categories">
             <div>
-              {{category.name}}
+              <!-- {{category.name}} -->
             </div>
           </div>
           
@@ -65,7 +65,7 @@
         <div class="scroll" *ngIf="isLoading">
 
           <div class="itemdiv" *ngFor="let trend of trending;" >
-            <app-product-card [item]="trend" [style]="'home'"></app-product-card>
+            <!-- <app-product-card [item]="trend" [style]="'home'"></app-product-card> -->
           </div>
         </div>
         
@@ -88,7 +88,7 @@
         </div>
         <div class="scroll" *ngIf="isLoading">
           <div class="itemdiv" *ngFor="let i of onSale" >
-            <app-product-card [item]="i" [style]="'home'"></app-product-card>
+            <!-- <app-product-card [item]="i" [style]="'home'"></app-product-card> -->
           </div>
         </div>
         

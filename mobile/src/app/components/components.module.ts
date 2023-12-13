@@ -2,7 +2,9 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { IonicModule } from "@ionic/angular";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { SearchComponent } from "./search/search.component";
+
+import { ProductCardComponent } from "./product-card/product-card.component";
+import { LikedComponent } from "./liked/liked.component";
 
 
 @NgModule ({
@@ -12,7 +14,7 @@ import { SearchComponent } from "./search/search.component";
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations:[SearchComponent],
-    exports:[SearchComponent]
+    declarations:[ProductCardComponent,LikedComponent],
+    exports:[ProductCardComponent,LikedComponent]
 }) 
 export class ComponentsModule {}

@@ -3,15 +3,15 @@ import { Router } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { DataService } from '../../services/data.service';
 import { ApiService } from 'src/app/services/api.service';
-import { CartService } from '../../services/cart.service';
+
 
 register();
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: './hometab.page.html',
+  styleUrls: ['./hometab.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HometabPage {
   categories = [
     //grocery categories and their pictures 
   ];
