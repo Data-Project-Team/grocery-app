@@ -9,8 +9,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
-  initid = localStorage.getItem("initid");
-  initcode = localStorage.getItem("initcode");
+  initid = localStorage.getItem("usr_apikey");
+  initcode = localStorage.getItem("usr_code");
   
   
   constructor(private api: ApiService, private formBuilder: FormBuilder, private router: Router) {
@@ -29,7 +29,7 @@ export class RegisterPage implements OnInit {
       const email = this.registerForm.value.email;
       const pwd = this.registerForm.value.pwd;
       const action = "registeruser";
-      const data = "&usname="+email+"&pwd="+pwd+"&userid="+this.initid;
+      const data = "&apikey="+this.initid+"&usname="+email+"&pwd="+pwd+"&userid="+this.initcode;
       this.api.getData(action, data).then(
         (response:any) => {
           console.log(response);
