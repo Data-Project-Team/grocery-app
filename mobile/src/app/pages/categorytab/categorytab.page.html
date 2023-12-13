@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
-    <ion-title>categorytab</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Categories</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">categorytab</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-no-border" [fullscreen]="true">
+
+  <ion-grid class="category-grid ">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="3" size-md="3" *ngFor="let i of [1, 2, 3, 4, 5, 6]">
+        <div class="category-card" animated="true">
+          <img class="category-avatar" src="assets/your_image_path.jpg" alt="Category Image" />
+
+          <div class="category-title">Food</div>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
 </ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
