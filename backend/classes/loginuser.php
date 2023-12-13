@@ -24,7 +24,7 @@ class loginuser extends REST{
                     $id = $checkinit->FetchRow();
                     $code = $id['INIT_ID'];
                     $sql->Execute($sql->Prepare("UPDATE app_init SET INIT_APIKEY=".$sql->Param('a').",INIT_USRCODE=".$sql->Param('b').",INIT_STATUS='2', WHERE INIT_ID=".$sql->Param('c').""),array($userapikey,$clientid));
-                    $this->response(array('msg'=>'success','data'=>$result,200);
+                    $this->response(array('msg'=>'success','data'=>$result),200);
                 }else{
                     $this->response(array('msg'=>'error','data'=>'user-not-found'),404);
                 }
