@@ -24,3 +24,65 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+:root {
+
+  
+    --ion-font-family: 'Gilroy-Semibold', Helvetica;
+  
+    --ion-font-weight: 400;
+  
+    --ion-font-size: 18px;
+  
+    --ion-letter-spacing: 0;
+  
+    --ion-line-height: 18px;
+    
+  }
+ .header-md, .header-ios, .footer-md, .footer-ios{
+    box-shadow:none ;
+    --webkit-box-shadow: none ;
+ }
+
+ 
+ ion-button {
+   text-transform: none;
+   --background:#185951;
+   color: white;
+   --background-activated:hsl(173, 58%, 28%);
+   
+  }
+
+  ion-item{
+    --inner-padding-end: 0;
+    --padding-start:0;
+    --border-style: none;
+}
+ion-toolbar{
+  padding: 0px 20px;
+  --background: transparent !important;
+}
+ion-back-button{
+  color: black;
+}
+ion-checkbox{
+  --border-color-checked:var(--checkbox-background-checked);
+  --checkmark-color:white;
+  --checkmark-width: 2.5px;
+  --checkbox-background-checked: #185951;
+  --size: 20px;
+}
+
+ion-tab-bar.md, ion-tab-bar.ios{
+  --background: white;
+  border-top: none;
+    --border:none;
+}
+
+.footer-ios.ion-no-border ion-toolbar:first-child {
+  --border-width: 0;
+  --background: white;
+}
+.footer-md.ion-no-border ion-toolbar:first-child {
+  --border-width: 0;
+}
