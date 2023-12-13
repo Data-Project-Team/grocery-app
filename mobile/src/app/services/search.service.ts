@@ -3,7 +3,12 @@ import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
+
+
 })
+
+
+
 export class SearchService {
   get(arg0: string) {
     throw new Error('Method not implemented.');
