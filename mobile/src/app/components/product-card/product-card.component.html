@@ -5,7 +5,7 @@
       </div>
       <div class="image_wrapper">
         <img class="item-img" src="item.img" (click)="gotodetails(item)"/>
-        <app-liked class="like" [item]="item" ></app-liked>  //do not add it until you create like component 
+        <app-liked class="like" [item]="item" ></app-liked>   
       </div> 
       <ion-card-content >
         <span (click)="gotodetails(item)"> {{item?.name}}</span>
