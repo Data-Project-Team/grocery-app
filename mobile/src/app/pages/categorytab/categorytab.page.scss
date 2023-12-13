@@ -1,0 +1,46 @@
+
+
+.category-grid {
+  padding: 16px;
+}
+
+.category-card {
+  height: 100px;
+
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: center;
+   /* Make the entire card circular */
+  overflow: hidden; /* Ensure border-radius applies to the image */
+  margin: 8px; /* Add margin for spacing between cards */
+}
+
+.category-avatar {
+  width:max-content;
+  height: 100%;
+  border-radius: 50%; /* Adjust the height as needed */
+  margin: 0 auto; /* Center the avatar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure border-radius applies to the image */
+}
+
+.category-avatar img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  border-radius: 50%; /* Make the image circular */
+}
+
+.category-title {
+  display: block;
+  margin-top: 8px;
+ 
+  font-size : 13px;
+}
+
+.category-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+ion-spinner {
+  margin: 16px auto;
+}

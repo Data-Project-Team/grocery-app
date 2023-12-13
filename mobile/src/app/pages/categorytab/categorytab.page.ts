@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categorytab.page.scss'],
 })
 export class CategorytabPage implements OnInit {
-
+  
+  categories: any[] = [];
+  isLoading: boolean = false; 
   constructor() { }
 
   ngOnInit() {
