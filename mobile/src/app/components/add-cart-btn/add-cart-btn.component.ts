@@ -1,14 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
-  selector: 'app-add-cart-btn',
-  templateUrl: './add-cart-btn.component.html',
-  styleUrls: ['./add-cart-btn.component.scss'],
+  
+  selector: 'app-addcart-btn',
+  templateUrl: './addcart-btn.component.html',
+  styleUrls: ['./addcart-btn.component.scss'],
 })
-export class AddCartBtnComponent  implements OnInit {
-
-  constructor() { }
+export class AddcartBtnComponent  implements OnInit {
+  @Input() item:any;
+  constructor(public cart: CartService) { }
 
   ngOnInit() {}
+
+  addToCart(){
+    this.cart.addToCart(this.item);
+  }
 
 }
