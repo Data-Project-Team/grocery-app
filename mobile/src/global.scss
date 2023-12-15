@@ -25,10 +25,28 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@font-face {
+  font-family: "rubik-regular";
+  src: url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.eot");
+  src: url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/12ebda1683a1752df697faceda81d94e.svg#Rubik Regular")format("svg");
+}
+@font-face {
+  font-family: "rubik-medium";
+  src: url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.eot");
+  src: url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/4dff84c26bc906823e344e1eb76fe7a7.svg#Rubik Medium")format("svg");
+}
 :root {
 
   
-    --ion-font-family: 'Gilroy-Semibold', Helvetica;
+    --ion-font-family: 'rubik-regular';
   
     --ion-font-weight: 400;
   
@@ -43,6 +61,11 @@
     box-shadow:none ;
     --webkit-box-shadow: none ;
  }
+ ion-title{
+  font-family: "rubik-medium";
+  text-align: center;
+  color: #000000;
+}
 
  
  ion-button {
