@@ -80,3 +80,22 @@ ion-button{
     box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
     background-color: white !important;
 }
+.empty-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    .icon-inner{
+        width: 160px;
+        height: 160px;
+    }
+    ion-icon{
+        width: 160px;
+        height: 160px;
+    }
+    ion-button{
+        width: auto;
+        height: 36px;
+    }
+}
