@@ -30,5 +30,13 @@ export class CartService {
     this.putCart(cart);
     this.updateTotal();
   }
+  removeCart(ProdId: any){
+    let cart = this.getCart();
+
+    const updatedCart = cart.filter((item: { id: any; })=> item.id !== ProdId);
+
+    this.putCart(updatedCart);
+    this.updateTotal();
+  }
 
 }
