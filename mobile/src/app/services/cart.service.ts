@@ -38,5 +38,16 @@ export class CartService {
     this.putCart(updatedCart);
     this.updateTotal();
   }
+  updateTotal(){
+    this.totalPrice=  0;
+    let cart = JSON.parse(localStorage.getItem('Cart') as string);
+    
+    for (let i = 0; i < cart.length; i++) {
+      const price = cart[i].final_price;
+      this.totalPrice += price* cart[i].quantity;
+      
+    }
+    return this.totalPrice;
+  }
 
 }
