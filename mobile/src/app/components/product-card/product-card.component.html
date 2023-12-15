@@ -4,11 +4,11 @@
         {{item.discount+'%'}}
       </div>
       <div class="image_wrapper">
-        <img class="item-img" src="item.img" (click)="gotodetails(item)"/>
+        <img class="item-img" src={{item.img}} />
         <app-liked class="like" [item]="item" ></app-liked>   
       </div> 
       <ion-card-content >
-        <span (click)="gotodetails(item)"> {{item?.name}}</span>
+        <span > {{item?.name}}</span>
         <div class="price">&cent; <span class="before" *ngIf="item.discount>0">{{item.price_before}}</span> {{item?.final_price}}</div> 
         <div class="itemadd">
           //add cart button 

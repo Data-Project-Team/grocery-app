@@ -1,13 +1,63 @@
-<ion-header [translucent]="true">
+<ion-header  class="ion-no-border" >
   <ion-toolbar>
-    <ion-title>productspage</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">productspage</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+    <ion-item class="filter-bar">
+      <ion-item class="sortby" slot="start">
+        <ion-icon src="assets/sort.svg"></ion-icon> <div >Filter</div>
+      </ion-item>
+      <ion-item class="sortby" slot="end">
+        <ion-icon src="assets/arrows.svg" (click)="openModal()"></ion-icon> <div >{{currentSortLabel}}</div>
+      </ion-item>
+      
+    </ion-item>
+ 
+  
+  
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" >
+    <ng-template>
+      <div class="modal-content">
+        <div class="modal-title">Sort by</div>
+        <ion-list class="modal-list">
+          <!-- <div *ngFor="let option of sortingOptions"
+                    [ngClass]="{ 'selected-sort': currentSort === option.value }"
+                    (click)="sortProducts(option.value)">{{ option.label }}</div> -->
+        </ion-list>
+        
+      </div>
+    </ng-template>
+    
+  </ion-modal>
+ 
+  <ion-grid >
+    <ion-row *ngIf="!isLoading" class="ion-align-self-center">
+      <ion-col size-s="3" size-md="3"  *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+        <div  class="skelItem" >
+          <ion-skeleton-text animated class="skeleton-image"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+        </div>
+        
+      </ion-col>
+    </ion-row>  
+    <ion-row *ngIf="isLoading">
+      <ion-col size-s="3" size-md="3"  *ngFor="let product of products">
+
+        <app-product-card  [item]="product" [style]="'main'"></app-product-card>
+      </ion-col>
+    </ion-row>
+      
+    
+   
+  </ion-grid>
+ 
 </ion-content>
