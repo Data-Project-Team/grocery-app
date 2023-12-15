@@ -6,3 +6,10 @@
     -moz-box-shadow:    0px 10px 30px rgba(0, 0, 0, 0.1);
     box-shadow:         0px 10px 30px rgba(0, 0, 0, 0.1);
 }
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px;
+    
+}
