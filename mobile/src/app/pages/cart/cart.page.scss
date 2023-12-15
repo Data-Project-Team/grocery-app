@@ -105,3 +105,36 @@ ion-button{
 .two{
     color: #545454;
 }
+ion-modal{
+    --border-radius: 15px;
+}
+.modal-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    
+    
+    .modal-title{
+        text-align: center;
+        font-family: "rubik-medium";
+        color: black;
+        font-size: 24px;
+       
+       
+    }
+    .delete-card{
+        
+        .purchase-card{
+            min-height: 0;
+        }
+        
+    }
+    .btns{
+        display: flex;
+        gap: 10px;
+    }
+}
+.modal-list > div{
+    padding:20px 0 ;
+}
