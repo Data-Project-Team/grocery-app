@@ -5,9 +5,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 import { WishlisttabPageRoutingModule } from './wishlisttab-routing.module';
-import { ComponentsModule } from 'src/app/components/components.module';
+
 
 import { WishlisttabPage } from './wishlisttab.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
