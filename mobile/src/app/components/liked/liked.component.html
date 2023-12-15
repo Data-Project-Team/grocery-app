@@ -1,0 +1,5 @@
+<div class="likediv">
+ 
+  <ion-icon  (click)="likedtoggle()" *ngIf="item.liked === '0'" class="like" src="assets/heart.svg" ></ion-icon>
+  <ion-icon  (click)="likedtoggle()" *ngIf="item.liked === '1'" class="like" name="heart" color="danger"></ion-icon>
+</div>
