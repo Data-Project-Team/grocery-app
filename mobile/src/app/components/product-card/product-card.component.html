@@ -11,7 +11,7 @@
         <span > {{item?.name}}</span>
         <div class="price">&cent; <span class="before" *ngIf="item.discount>0">{{item.price_before}}</span> {{item?.final_price}}</div> 
         <div class="itemadd">
-          //add cart button 
+          <app-addcart-btn [item]="item"></app-addcart-btn>
         </div>
       </ion-card-content>
     </ion-card>
