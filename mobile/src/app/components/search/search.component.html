@@ -1,0 +1,21 @@
+
+<div class="search">
+  <ion-icon slot="icon-only" name="search"></ion-icon>
+  <input type="search" placeholder="Search"/>
+
+</div>
+
+<!-- Display Search Results -->
+<div class="search-menu" *ngIf="showResults">  
+  <ion-list *ngIf="searchResults.length > 0">
+  <ion-item *ngFor="let result of searchResults">
+    <div class="text">
+      {{ result.name }} 
+    </div>
+    
+  </ion-item>
+</ion-list>
+</div>
+
+
+

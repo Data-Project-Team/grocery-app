@@ -1,0 +1,140 @@
+.purchase-card{
+    min-height: 150px;
+    border-radius: 15px;
+    background-color: white;
+    -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:    0px 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow:         0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px;
+    
+}
+.prod-img {
+    height: 115px;
+    min-width: 110px;
+    border-radius: 20px;
+    background-color: #cdcdcd;
+}
+.prod-info{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.top{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.prod-name{
+    font-size: 24px;
+    font-family: "rubik-medium";
+}
+.delete{
+    font-size: 1.5em;
+}
+.bottom{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.prod-price{
+    font-size: 24px;
+}
+.total-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.checkout{
+    text-align: center;
+}
+ion-button{
+    --padding-top: 20px ;
+    --padding-bottom: 20px ;
+    width: 100%;
+}
+.total-wrapper{
+    justify-content: space-between;
+}
+.title-price{
+    padding-left: 5px;
+     font-size: 1.1rem;
+     font-weight: bold;
+     color: hsl(0, 0%, 40%);
+ }
+.price{
+    font-size:1.8rem;
+}
+.footer-md, .footer-ios {
+    -webkit-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    background-color: white !important;
+}
+.empty-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    .icon-inner{
+        width: 160px;
+        height: 160px;
+    }
+    ion-icon{
+        width: 160px;
+        height: 160px;
+    }
+    ion-button{
+        width: auto;
+        height: 36px;
+    }
+}
+.one{
+    font-weight: bold;
+}
+.two{
+    color: #545454;
+}
+ion-modal{
+    --border-radius: 15px;
+}
+.modal-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    
+    
+    .modal-title{
+        text-align: center;
+        font-family: "rubik-medium";
+        color: black;
+        font-size: 24px;
+       
+       
+    }
+    .delete-card{
+        
+        .purchase-card{
+            min-height: 0;
+        }
+        
+    }
+    .btns{
+        display: flex;
+        gap: 10px;
+    }
+}
+.modal-list > div{
+    padding:20px 0 ;
+}

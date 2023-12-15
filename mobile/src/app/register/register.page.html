@@ -18,16 +18,16 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <form >
+        <form [formGroup]="registerForm">
         
           <div class="input one">
-              <ion-input  expand="block" class="name" type="text" name="name" placeholder="Name"></ion-input>
+              <ion-input formControlName="name"  expand="block" class="name" type="text" name="name" placeholder="Name"></ion-input>
           </div>
           <div class="input two">
-          <ion-input  expand="block" class="email" type="email" name="email" placeholder="Email"></ion-input>
+          <ion-input formControlName="email" expand="block" class="email" type="email" name="email" placeholder="Email"></ion-input>
           </div>
           <div class="input three">
-          <ion-input expand="block" class="password" type="password" name="password" placeholder="Password"></ion-input>
+          <ion-input formControlName="pwd" expand="block" class="password" type="password" name="password" placeholder="Password"></ion-input>
           </div>
         </form>
       </ion-col>
@@ -43,7 +43,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" class="signup-btn" expand="block" fill="clear" shape="round">
+        <ion-button type="submit" (click)="submitForm()" class="signup-btn" expand="block" fill="clear" shape="round">
           Sign Up
         </ion-button>
       </ion-col>
