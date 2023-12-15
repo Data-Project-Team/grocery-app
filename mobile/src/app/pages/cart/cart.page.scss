@@ -74,3 +74,9 @@ ion-button{
 .price{
     font-size:1.8rem;
 }
+.footer-md, .footer-ios {
+    -webkit-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    -moz-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
+    background-color: white !important;
+}
