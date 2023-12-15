@@ -13,4 +13,8 @@ export class CartService {
     let cart = localStorage.getItem('Cart') as string;
     return JSON.parse(cart);
   }
+  putCart(data:any){
+    return localStorage.setItem("Cart", JSON.stringify(data));
+  }
+  
 }
