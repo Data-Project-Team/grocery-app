@@ -11,11 +11,11 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'hometab',
         pathMatch: 'full'
       },
       {
-        path: 'home',
+        path: 'hometab',
         children: [{
           path: '',
           loadChildren: () => import('../pages/hometab/hometab.module').then( m => m.HometabPageModule)
