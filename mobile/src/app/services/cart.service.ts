@@ -16,5 +16,19 @@ export class CartService {
   putCart(data:any){
     return localStorage.setItem("Cart", JSON.stringify(data));
   }
-  
+  addToCart(product: { id: any; }){
+    let cart = this.getCart();
+
+    const itemexists = cart.findIndex((item: { id: any; }) => item.id === product.id );
+
+
+    if (itemexists !== -1) {
+      cart[itemexists].quantity += 1;
+    } else {
+      cart.push(product);
+    }
+    this.putCart(cart);
+    this.updateTotal();
+  }
+
 }
