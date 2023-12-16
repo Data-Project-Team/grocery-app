@@ -11,7 +11,7 @@ register();
   templateUrl: './hometab.page.html',
   styleUrls: ['./hometab.page.scss'],
 })
-export class HometabPage {
+export class HometabPage implements OnInit {
   categories = [
     //grocery categories and their pictures 
   ];
@@ -26,6 +26,56 @@ export class HometabPage {
    }
 
    /// fetching respose 
+   ngOnInit() {
+    this.fetchTrendingProducts();
+    this.fetchOnSale();
+  }
   
- 
+  fetchTrendingProducts(){
+    const action = "fetchproducts";
+    const usrCode = localStorage.getItem("usr_code");
+    const data = '&usrCode='+usrCode + '&fetchby=trending';
+
+    this.api.getData(action, data).then(
+      (response: any) => {
+        console.log(response);
+        if(response.msg === 'success'){
+          this.trending = response.data;
+          this.isLoading=true;
+          console.log("Success Fetching Trending Products")
+        } else {
+          this.trending = []
+          this.isLoading=false;
+        }  
+      },
+      (error) => {
+        console.error('Error Fetching Trending Products:', error);
+      }
+    );
+  }
+
+  fetchOnSale(){
+    const action = "fetchproducts";
+    const usrCode = localStorage.getItem("usr_code");
+    const data = '&usrCode='+usrCode + '&fetchby=onSale';
+
+    this.api.getData(action, data).then(
+      (response: any) => {
+        if(response.msg === 'success'){
+          this.onSale = response.data;
+          this.isLoading=true;
+          console.log("Success Fetching Products")
+        } else {
+          this.trending = []
+          this.isLoading=false;  
+        }  
+      },
+      (error) => {
+        console.error('Error Fetching OnSale Products:', error);
+      }
+    );
+  }
+
+  
+ 
 }
