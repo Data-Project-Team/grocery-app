@@ -38,7 +38,7 @@ const routes: Routes = [
       },
       {
         path: 'carttab',
-        loadChildren: () => import('./carttab/carttab.module').then( m => m.CarttabPageModule)
+        loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
       },
       {
         path: 'wishlisttab',
