@@ -1,13 +1,108 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
+<ion-header [translucent]="true"  class="ion-no-border">
+  <ion-toolbar >
+    <ion-back-button></ion-back-button>
+    <ion-title>My Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-pa1dding" [fullscreen]="true">
+  <div class="upper">
+    <div class="empty-container" *ngIf="cartItems.length === 0">
+      <ion-icon class="emptyimg" src="assets/empty-cart.svg"></ion-icon>
+      <p class="one">Your cart is empty!</p>
+      <p class="two">Look like you haven't added anything to your cart yet</p>
+      <ion-button routerLink="/pages/home">START SHOPPING</ion-button>
+    </div>
+    <ion-grid>
+      
+     
+      
+      <ion-row  class="ion-justify-content-center">
+
+        <ion-col *ngFor="let item of cartItems" class="ion-align-items-center"size="12"  >
+          
+            <div class="purchase-card">
+              <div class="wrapper">
+                
+                <div class="prod-img">
+                  
+                </div>
+                <div class="prod-info">
+                  <div class="top">
+                    <div class="prod-name">{{item.name}}</div>
+                    <ion-icon  class="delete" src="assets/bin.svg" (click)="openModal(item)"></ion-icon>  
+                  </div>
+                  <div  class="bottom">
+                    <div class="prod-price">&cent; {{item.final_price}}</div>
+                    <app-plus-minus-toggle [item]="item" (quantityChanged)="onQuantityChanged($event)" ></app-plus-minus-toggle>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+            </div>
+            <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.40" >
+              <ng-template>
+                <ion-content>
+                  <div class="modal-list">
+                    <div class="modal-title">Remove From Cart?</div>
+                    <div class="delete-card">
+                      <div class="purchase-card">
+                        <div class="wrapper">
+                          
+                          <div class="prod-img">
+                            
+                          </div>
+                          <div class="prod-info">
+                            <div class="top">
+                              <div class="prod-name">{{modalItem.name}}</div>
+                            </div>
+                            <div  class="bottom">
+                              <div class="prod-price">&cent; {{modalItem.final_price}}</div>
+                              <app-plus-minus-toggle [item]="modalItem" (quantityChanged)="onQuantityChanged($event)" ></app-plus-minus-toggle>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="btns">
+                      <ion-button shape="round" class="cancel-btn" (click)="modal.dismiss()"> Cancel</ion-button>
+                      <ion-button shape="round" class="remove-btn" (click)="removeItem(item); modal.dismiss()">Yes, remove</ion-button>
+                    </div>
+                  </div>
+                  
+                  
+
+                </ion-content>
+                
+
+              </ng-template>
+              
+            </ion-modal>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+ 
+  
+    
 </ion-content>
+<ion-footer class="ion-padding"  class="ion-no-border">
+  <ion-grid >
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="total-wrapper" size="4">
+        <div class="title-price">Total price</div>
+        <div class="price">&cent; {{cart.totalPrice | number:'1.2-2'}}</div>
+      </ion-col>
+      <ion-col class="checkout" size="8">
+        <ion-button fill="clear" shape="round" routerLink="/pages/checkout">
+          Checkout
+        </ion-button>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-footer>
