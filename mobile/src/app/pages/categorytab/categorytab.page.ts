@@ -54,5 +54,9 @@ export class CategorytabPage implements OnInit {
       }
     );
   }
+  routetoproduct(item:any){
+    this.data.setData('i',item)
+    this.router.navigate(['pages/categorytab/productspage/i']);
+  }
 }
 
