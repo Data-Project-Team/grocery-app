@@ -51,9 +51,15 @@ const routes: Routes = [
       {
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+      },
+      {
+        path: 'accounttab',
+        loadChildren: () => import('./accounttab/accounttab.module').then( m => m.AccounttabPageModule)
       }
     ] 
-  }  
+  },   
+  
+ 
 ];
 
 @NgModule({
