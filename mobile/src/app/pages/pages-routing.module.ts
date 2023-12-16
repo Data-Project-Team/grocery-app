@@ -37,8 +37,13 @@ const routes: Routes = [
         loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
       },
       {
+<<<<<<< HEAD
         path: 'carttab',
         loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+=======
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(m=>m.CartPageModule)
+>>>>>>> nancy's-branch
       },
       {
         path: 'wishlisttab',

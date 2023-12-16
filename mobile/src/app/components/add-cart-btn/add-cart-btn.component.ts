@@ -18,3 +18,7 @@ export class AddcartBtnComponent  implements OnInit {
   }
 
 }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> nancy's-branch
