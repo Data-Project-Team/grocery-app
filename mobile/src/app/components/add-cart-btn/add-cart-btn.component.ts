@@ -18,3 +18,4 @@ export class AddcartBtnComponent  implements OnInit {
   }
 
 }
+  

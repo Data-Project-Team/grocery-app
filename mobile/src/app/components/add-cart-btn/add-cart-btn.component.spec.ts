@@ -21,4 +21,4 @@ describe('AddCartBtnComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});  
