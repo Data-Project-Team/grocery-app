@@ -51,12 +51,14 @@ const routes: Routes = [
       {
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+      },
+      {
+        path: 'accounttab',
+        loadChildren: () => import('./accounttab/accounttab.module').then( m => m.AccounttabPageModule)
       }
     ] 
-  },   {
-    path: 'account',
-    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
-  }
+  },   
+  
  
 ];
 
