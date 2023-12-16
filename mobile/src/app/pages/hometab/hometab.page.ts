@@ -97,7 +97,10 @@ export class HometabPage implements OnInit {
       }
     );
   }
-
+routetoproduct(item:any){
+  this.data.setData('i',item)
+  this.router.navigate(['pages/hometab/productspage/i']);
+}
   
  
 }

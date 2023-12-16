@@ -34,7 +34,7 @@
     <ion-row>
       <ion-col class="categrow" size="auto">
         <div class="scroll" >
-          <div class="catname"  *ngFor="let category of categories">
+          <div class="catname"  *ngFor="let category of categories" (click) ="routetoproduct(category.id)">
             <div>
                {{category.name}}
             </div>
