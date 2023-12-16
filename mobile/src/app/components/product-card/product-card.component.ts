@@ -12,6 +12,14 @@ export class ProductCardComponent  implements OnInit {
   @Input() style:any;
   constructor(public data: DataService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
+  gotodetails(item:any){
+    this.data.setData("i", item);
+    this.router.navigate(['pages/home/details/i']);
+  }
+
+  
 }

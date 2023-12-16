@@ -37,8 +37,8 @@ const routes: Routes = [
         loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
       },
       {
-        path: 'carttab',
-        loadChildren: () => import('./carttab/carttab.module').then( m => m.CarttabPageModule)
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(m=>m.CartPageModule)
       },
       {
         path: 'wishlisttab',
@@ -51,12 +51,14 @@ const routes: Routes = [
       {
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+      },
+      {
+        path: 'accounttab',
+        loadChildren: () => import('./accounttab/accounttab.module').then( m => m.AccounttabPageModule)
       }
     ] 
-  },   {
-    path: 'account',
-    loadChildren: () => import('./account/account.module').then( m => m.AccountPageModule)
-  }
+  },   
+  
  
 ];
 
