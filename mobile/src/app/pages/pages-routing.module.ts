@@ -34,7 +34,17 @@ const routes: Routes = [
       },
       {
         path: 'categorytab',
-        loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
+        children: [{
+          path: '',
+          loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
+        },
+        {
+          path: 'productspage/:id',
+          resolve: {payload: ResolverService},
+          loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+        }
+      ]
+
       },
       {
         path: 'cart',
