@@ -1,45 +1,34 @@
-
-
 .category-grid {
   padding: 16px;
 }
 
 .category-card {
-  height: 100px;
-
+  height: 150px;
   transition: box-shadow 0.3s ease-in-out;
   text-align: center;
-   /* Make the entire card circular */
-  overflow: hidden; /* Ensure border-radius applies to the image */
-  margin: 8px; /* Add margin for spacing between cards */
+  overflow: hidden; 
+  margin: 6px; 
 }
 
 .category-avatar {
-  width:max-content;
-  height: 100%;
-  border-radius: 50%; /* Adjust the height as needed */
-  margin: 0 auto; /* Center the avatar */
+  width: 100px;
+  height:100px;
+  object-fit: contain;
+  border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Ensure border-radius applies to the image */
-}
-
-.category-avatar img {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
-  border-radius: 50%; /* Make the image circular */
 }
 
 .category-title {
-  display: block;
-  margin-top: 8px;
- 
-  font-size : 13px;
+  display: block; /* Ensure the label appears below the image */
+  margin-top: 10px; 
+  font-weight: 600;
+  font-size: 13px;
 }
 
-.category-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+
+/*.category-avatar:hover {
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}*/
 
 ion-spinner {
   margin: 16px auto;
