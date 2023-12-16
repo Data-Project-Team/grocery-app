@@ -8,7 +8,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img class="logo" src="/assets/icon/grocera-logo.png" alt="">
+        <img class="logo" src="/assets/icon/new-logo.png" alt="">
       </ion-col>
     </ion-row>
     <ion-row>
@@ -18,12 +18,12 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <form >
+        <form (submit)="login()" >
           <div class="input one"> 
-            <ion-input  expand="block" class="email" type="email" name="email" placeholder="Email"></ion-input>
+            <ion-input [(ngModel)]="formData.email"  expand="block" class="email" type="email" name="email" placeholder="Email"></ion-input>
           </div>
           <div class="input two">
-            <ion-input expand="block" class="password" type="password" name="password" placeholder="Password"></ion-input>
+            <ion-input [(ngModel)]="formData.pwd" expand="block" class="password" type="password" name="password" placeholder="Password"></ion-input>
           </div>
         </form>
 
@@ -42,7 +42,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button  class="login-btn" expand="block" fill="clear" shape="round">
+        <ion-button (click)="login()" class="login-btn" expand="block" fill="clear" shape="round">
           Log in
         </ion-button>
       </ion-col>

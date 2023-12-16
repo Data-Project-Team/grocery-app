@@ -1,0 +1,160 @@
+ion-content {
+--padding-top: 0px;
+--padding-start: 0px;
+--padding-end: 0px;
+}
+
+ion-grid{
+padding:0px;
+}
+ion-col{
+padding: 0px;
+}
+.item .item-name {
+font-size: 20px;
+font-weight: bold;  
+}
+
+p {
+font-size: 14px;
+}
+
+ion-icon {
+font-size: 20px;
+}
+
+ion-button {
+--border-radius: 10px;
+}
+
+.product-img {
+height: 40vh;
+width: 100%;
+background-color: #f2f3f2;
+border-radius: 0px 0px 25px 25px;
+}
+
+@media (min-width: 768px) {
+ion-content {
+    --padding-top: 64px;    
+}
+
+.item .item-name {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px; 
+}
+
+ion-icon {
+    font-size: 24px;
+}
+}
+
+
+.quantity{
+position: relative;
+display: flex;
+flex-direction: row;
+gap: 20px;
+text-align: center;
+align-items: center;
+align-self: center;
+}
+
+
+.rectangle {
+width: 46px;
+height: 46px;
+border-radius: 17px;
+border: 1px solid #E2E2E2;
+display: flex;
+  justify-content: center;
+  align-items: center;
+    
+}
+.outer-wrapper{
+padding:15px;
+}
+.wrapper-1{
+padding: 15px 0 5px 0;
+}
+.item{
+position: relative;
+display: flex;
+flex-direction: column;
+gap: 10px;
+.item-price{
+    font-size: 16px;
+    color: #7C7C7C;
+}
+}
+
+.wrapper-2{
+padding: 15px 0 5px 0;
+
+}
+.price{
+    font-family: 'Gilroy-Bold', Helvetica;
+    font-weight: bold;
+    font-size: 24px;
+    }
+
+.wrapper-3{
+padding: 10px 5px 10px 5px;
+.title{
+    padding: 15px 0 15px 0 ;
+    font-weight: 600;
+}
+.content{
+    font-family: "Gilroy-Medium", Helvetica;
+    font-weight: 400;
+    color: #7c7c7c;
+    font-size: 13px;
+}
+
+}
+.vector {
+    top:0;
+    width: 100%;
+    height: 1px;
+    object-fit: cover;
+}
+.footer-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.total-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.total-wrapper .title{
+    width:max-content;
+    color: #7c7c7c;
+    font-size: 14px;
+    font-weight: bold;
+}
+.total-wrapper .price{
+    font-size: 20px;
+}
+.btn{
+    width: 100%;
+    ion-button{
+        --padding-top: 12px;
+        --padding-bottom: 12px;
+    }
+    
+}
+.footer-md, .footer-ios {
+    -webkit-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.3);
+    box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.3);
+    background-color: white !important;
+    border-radius: 10px;
+    padding: 20px;
+}
+
