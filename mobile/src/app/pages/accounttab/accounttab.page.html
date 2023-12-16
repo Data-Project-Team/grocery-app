@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-image"></div>
+      <div class="profile-info">
+        <h2 class="profile-name">Rewan Abubaker</h2>
+        <p class="profile-email">example.com</p>
+      </div>
+    </div>
+
+    <ion-list class="profile-options">
+      <ion-item button detail="true">
+        <ion-icon name="cart" slot="start"></ion-icon>
+        <ion-label>
+          <h3>My Orders</h3>
+          <p>Already have 3 orders</p>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="true">
+        <ion-icon name="map" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Shipping Addresses</h3>
+          <p>4 addresses</p>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="true">
+        <ion-icon name="wallet" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Payment Methods</h3>
+          <p>Visa ...23</p>
+        </ion-label>
+      </ion-item>
+      <ion-item button detail="true">
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>
+          <h3>Settings</h3>
+          <p>Notification, password</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="logout-button" (click)="logout()" expand="block" fill="outline" shape="round">
+      Log Out
+    </ion-button>
+  </div>
+</ion-content>
