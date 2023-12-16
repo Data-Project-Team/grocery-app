@@ -4,8 +4,8 @@ import { CartService } from '../../services/cart.service';
 @Component({
   
   selector: 'app-addcart-btn',
-  templateUrl: './add-cart-btn.component.html',
-  styleUrls: ['./add-cart-btn.component.scss'],
+  templateUrl: './addcart-btn.component.html',
+  styleUrls: ['./addcart-btn.component.scss'],
 })
 export class AddcartBtnComponent  implements OnInit {
   @Input() item:any;
