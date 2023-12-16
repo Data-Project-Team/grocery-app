@@ -7,21 +7,19 @@
 
 <ion-content class="ion-no-border" [fullscreen]="true">
 
-  <ion-grid class="category-grid ">
+  <ion-grid class="category-grid">
     <ion-row class="ion-align-items-center">
-      <ion-col size="3" size-md="3" *ngFor="let i of [1, 2, 3, 4, 5, 6]">
+      <ion-col size="3" size-md="3" *ngFor="let category of categories">
         <div class="category-card" animated="true">
-          <img class="category-avatar" src="assets/your_image_path.jpg" alt="Category Image" />
-
-          <div class="category-title">Food</div>
-
+          <img class="category-avatar" [src]="category.img" alt="{{category.name}}" />
+          <div class="category-title">{{category.name}}</div>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-spinner *ngIf="isLoading"></ion-spinner>
 </ion-content>
+
 
 
 

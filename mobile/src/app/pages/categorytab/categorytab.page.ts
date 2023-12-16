@@ -42,6 +42,7 @@ export class CategorytabPage implements OnInit {
 
     this.api.getData(action, data).then(
       (response: any) => {
+        console.log(response);
         if (response.msg === 'success') {
           this.categories = response.data;
         } else {
