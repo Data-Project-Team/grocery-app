@@ -1,19 +1,17 @@
-.category-grid {
-  padding: 16px;
-}
+// .category-grid {
+//   padding: 16px;
+// }
 
 .category-card {
-  height: 150px;
   transition: box-shadow 0.3s ease-in-out;
   text-align: center;
-  overflow: hidden; 
   margin: 6px; 
 }
 
 .category-avatar {
-  width: 100px;
-  height:100px;
-  object-fit: contain;
+  width: 80px;
+  height:80px;
+  overflow: hidden;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
