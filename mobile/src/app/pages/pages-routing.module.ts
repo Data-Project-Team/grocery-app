@@ -54,6 +54,7 @@ const routes: Routes = [
       {
         path: 'cart',
         loadChildren: () => import('./cart/cart.module').then(m=>m.CartPageModule)
+>>>>>>> nancy's-branch
       },
       {
         path: 'wishlisttab',
