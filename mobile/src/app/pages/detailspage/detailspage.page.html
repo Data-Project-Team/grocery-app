@@ -5,7 +5,7 @@
     <ion-row>
       <ion-col>
         <div class="product-img">
-
+          <img src = {{item.img}}/>
         </div>
       </ion-col>
     </ion-row>
@@ -13,12 +13,11 @@
       <ion-col size-md="12" >
         <ion-item class="wrapper-1">
           <div class="item">
-            <div class="item-name">Product Name</div>
-            <div class="item-price">1kg, $4.99</div>
+            <div class="item-name">{{item.name}}</div>
+            <div class="item-price">{{item.final_price}}</div>
           
           </div>
-        
-          <ion-icon name="heart-outline" slot="end"></ion-icon>
+        <app-liked [item] = "item" slot = "end"></app-liked>
         </ion-item>
         <ion-item class="wrapper-2">
           <div class="quantity" slot="start">
@@ -29,20 +28,19 @@
             </div>
       
             <ion-icon name="add-outline"></ion-icon>
+
           </div>
-          <div class="price" slot="end">
-            $4.99
-          </div>
+          <div class="price" slot = "end">EGP <span class="before" *ngIf="item.discount>0">{{item.price_before}}</span> {{item?.final_price}}</div> 
         </ion-item>
         
         <div class="wrapper-3">
           <img class="vector" src="assets/vector-line.svg" />
           <div class="details">
             <div class="title">
-              Product Details
+              Description
             </div>
             <div class="content">
-              Apples Are Nutritious. Apples May Be Good For Weight Loss. Apples May Be Good For Your Heart. As Part Of A Healtful And Varied Diet.
+              {{item.long_disc}}
             </div>
             
 
@@ -50,9 +48,9 @@
 
           <div class="more">
             <div class="title">
-              More
+              Details
             </div>
-          
+          <ul class = "detail-list" [innerHTML] = " item.details"></ul>
           </div>
 
           
@@ -77,9 +75,7 @@
       </div>
     </div>
     <div class="btn">
-      <ion-button expand="block">
-        Add to Cart
-      </ion-button>
+      <app-addcart-btn [item]="item"></app-addcart-btn>
     </div>
    
   </div>

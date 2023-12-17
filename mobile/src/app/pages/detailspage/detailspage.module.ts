@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailspagePageRoutingModule } from './detailspage-routing.module';
-
+import { ComponentsModule } from 'src/app/components/components.module';
 import { DetailspagePage } from './detailspage.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { DetailspagePage } from './detailspage.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailspagePageRoutingModule
+    DetailspagePageRoutingModule,
+    ComponentsModule
   ],
   declarations: [DetailspagePage]
 })
