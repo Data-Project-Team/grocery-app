@@ -21,16 +21,15 @@
         </ion-item>
         <ion-item class="wrapper-2">
           <div class="quantity" slot="start">
-            <ion-icon name="remove-outline"></ion-icon>
-      
-            <div class="rectangle">
-              <div class="no">1</div>
-            </div>
-      
-            <ion-icon name="add-outline"></ion-icon>
+            <ion-icon name="remove-outline" (click)="decreaseQuantity()"></ion-icon>
 
+            <div class="rectangle">
+              <div class="no">{{ item.quantity }}</div>
+            </div>
+
+            <ion-icon name="add-outline" (click)="increaseQuantity()"></ion-icon>
           </div>
-          <div class="price" slot = "end">EGP <span class="before" *ngIf="item.discount>0">{{item.price_before}}</span> {{item?.final_price}}</div> 
+          <div class="price" slot="end">EGP <span class="before" *ngIf="item.discount > 0">{{ item.price_before }}</span> {{ calculateTotalPrice() | number:'1.2-2' }}</div>
         </ion-item>
         
         <div class="wrapper-3">
