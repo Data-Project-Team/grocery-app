@@ -19,7 +19,8 @@ import { CartPageModule } from '../cart/cart.module';
     ComponentsModule,
     CartPageModule
   ],
-  declarations: [HometabPage], [CartPage], 
+  declarations: [HometabPage], 
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HometabPageModule {}
