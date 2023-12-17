@@ -1,0 +1,23 @@
+
+.inc-dec{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #cdcdcd;
+    padding: 5px;
+    border-radius: 20px;
+    ion-icon{
+        font-size: 1.5em;
+        
+    }
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+input{
+    width: 40px;
+    border: none;
+    text-align: center;
+    background-color: #cdcdcd;
+}

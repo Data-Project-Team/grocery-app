@@ -6,8 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { HometabPageRoutingModule } from './hometab-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
-
+import { CartPage } from '../cart/cart.page';
 import { HometabPage } from './hometab.page';
+import { CartPageModule } from '../cart/cart.module';
 
 @NgModule({
   imports: [
@@ -15,9 +16,10 @@ import { HometabPage } from './hometab.page';
     FormsModule,
     IonicModule,
     HometabPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    CartPageModule
   ],
-  declarations: [HometabPage],
+  declarations: [HometabPage], [CartPage], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class HometabPageModule {}
+export class HometabPageModule {}

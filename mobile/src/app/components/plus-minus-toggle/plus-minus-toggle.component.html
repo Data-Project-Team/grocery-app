@@ -1,0 +1,5 @@
+<div class="inc-dec">
+  <ion-icon src="assets/minus.svg" (click)="onDecrement(item)"></ion-icon>
+  <input type="text" name="text" value="{{item.quantity}}" id="" [(ngModel)]="item.quantity" (ngModelChange)="emitQuantityChanged()" (keydown.enter)="saveQuantity()">
+  <ion-icon src="assets/add.svg" (click)="onIncrement(item)"></ion-icon>
+</div>

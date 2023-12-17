@@ -44,7 +44,36 @@ ion-card-content > span{
 // card style options //
 
 //style = 'product' 
-   //code here. 
+.product{
+
+    .image_wrapper {
+        position: relative;
+        .item-img {
+            width:100%;
+            object-fit: cover;
+            border-radius: 20px;
+            background-color: #cdcdcd;
+            
+        }
+        .like {
+            margin-right: 0.5rem;
+            margin-bottom:-0.3rem;
+            position: absolute; 
+            right: 0;
+            bottom: 0;
+        }
+        
+    }
+    ion-card{
+        width: 10.5rem;
+        margin: 0;
+        box-shadow: none;
+    }
+    .item-img{
+        height: 11rem;
+    }
+
+}
 
 
 //style = 'home'
