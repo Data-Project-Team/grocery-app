@@ -18,7 +18,7 @@ export class ProductCardComponent  implements OnInit {
 
   gotodetails(item:any){
     this.data.setData("i", item);
-    this.router.navigate(['pages/home/details/i']);
+    this.router.navigate(['pages/hometab/details/i']);
   }
 
   

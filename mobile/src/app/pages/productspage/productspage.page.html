@@ -28,9 +28,9 @@
       <div class="modal-content">
         <div class="modal-title">Sort by</div>
         <ion-list class="modal-list">
-          <!-- <div *ngFor="let option of sortingOptions"
+          <div *ngFor="let option of sortingOptions"
                     [ngClass]="{ 'selected-sort': currentSort === option.value }"
-                    (click)="sortProducts(option.value)">{{ option.label }}</div> -->
+                    (click)="sortProducts(option.value)">{{ option.label }}</div> 
         </ion-list>
         
       </div>
