@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container">
+    <form (ngSubmit)="changePassword()">
+      <!-- Old Password -->
+      <ion-item>
+        <ion-label position="floating">Old Password</ion-label>
+        <ion-input type="password" [(ngModel)]="passwords.oldPassword" name="oldPassword"></ion-input>
+      </ion-item>
+
+      <!-- New Password -->
+      <ion-item>
+        <ion-label position="floating">New Password</ion-label>
+        <ion-input type="password" [(ngModel)]="passwords.newPassword" name="newPassword"></ion-input>
+      </ion-item>
+
+      <!-- Confirm New Password -->
+      <ion-item>
+        <ion-label position="floating">Confirm New Password</ion-label>
+        <ion-input type="password" [(ngModel)]="passwords.confirmNewPassword" name="confirmNewPassword"></ion-input>
+      </ion-item>
+
+      <!-- Submit Button -->
+      <ion-button type="submit" expand="block" class="submit-button">Change Password</ion-button>
+    </form>
+  </div>
+</ion-content>

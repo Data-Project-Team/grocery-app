@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
   <ion-grid class="ion-padding">
-    <ion-row>
-      <ion-col>
-        <div class="searchbar">
-          <app-search></app-search><button  class="filter-btn"><ion-icon src='../../../assets/settings-sliders.svg'></ion-icon></button>
-        </div>
-       
-      </ion-col>
+    <ion-row class="search-and-filter-container">
+      <div class="search-container">
+        <app-search></app-search>   
+      </div>
+          <button class="filter-btn">
+            <ion-icon src='../../../assets/settings-sliders.svg'></ion-icon>
+          </button>
       
     </ion-row>
     <ion-row class="advertrow">
