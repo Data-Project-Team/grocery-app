@@ -29,7 +29,7 @@
 
             <ion-icon name="add-outline" (click)="increaseQuantity()"></ion-icon>
           </div>
-          <div class="price" slot="end">EGP <span class="before" *ngIf="item.discount > 0">{{ item.price_before }}</span> {{ calculateTotalPrice() | number:'1.2-2' }}</div>
+          <div class="price" slot="end">EGP <span class="before" *ngIf="item.discount > 0">{{ item.price_before }}</span> {{ item.final_price }}</div>
         </ion-item>
         
         <div class="wrapper-3">
@@ -65,18 +65,16 @@
   </ion-grid>
  
 </ion-content>
-<ion-footer class="ion-padding"  class="ion-no-border">
-  <div class="footer-wrapper" >
+<ion-footer class="ion-padding" class="ion-no-border">
+  <div class="footer-wrapper">
     <div class="total-wrapper">
       <div class="title">Price Total</div>
       <div class="price">
-        $8.49
+        EGP {{ calculateTotalPrice() | number:'1.2-2' }}
       </div>
     </div>
     <div class="btn">
       <app-addcart-btn [item]="item"></app-addcart-btn>
     </div>
-   
   </div>
-  
 </ion-footer>
