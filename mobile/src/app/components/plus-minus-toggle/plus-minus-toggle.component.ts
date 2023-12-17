@@ -51,6 +51,4 @@ export class PlusMinusToggleComponent  implements OnInit {
       this.item.quantity = 1;
     }
   }
-
- 
 }
