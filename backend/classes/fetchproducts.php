@@ -1,8 +1,7 @@
 <?php
 class fetchproducts  extends REST
 {	
-    function __construct()
-    {
+    function __construct(){
         parent::__construct();
         global$sql;
         $this->sql=$sql;
@@ -18,7 +17,7 @@ class fetchproducts  extends REST
 
         if ($categoryId !== null) {
             $query .= " AND CTG_ID = $categoryId";
-            
+        }    
         if ($fetchby !== null){
             if ($fetchby === "trending") {
                 $query .= "ORDER BY PROD_VIEW_COUNT DESC, PROD_LIKE_COUNT DESC ";

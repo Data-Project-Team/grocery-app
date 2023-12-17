@@ -1,5 +1,40 @@
-//swarch bar style
+ion-searchbar{
+    --background: white;
+    --border-radius: 20px;
+    padding: 0 2px;
+    --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.searchbar{
+    position: relative;
+    .filter-btn{
+        position: absolute;
+        top:35%;
+        right:3%;
+        width: 20px;
+        height: 20px;
+        color: var(--ion-color-medium);
+        background-color: transparent;
+        border: 0;
+        font-size: 1.1em;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+}
 
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+       
+    img {
+        height: 50%; 
+        border-radius: 50px;
+    } 
+}
+.title{
+    font-weight: 600;
+    font-size: 17px;
+}
 
 .scroll{
     display: flex;
