@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { AddressChangeComponent } from '../../components/address-change/address-change.component'; // Import your address change page
+
 
 @Component({
   selector: 'app-account',
@@ -10,9 +13,24 @@ import { Router } from '@angular/router';
 })
 export class AccounttabPage implements OnInit {
 
-  constructor(public api:ApiService, public data: DataService, private router: Router) { }
+  constructor(public api:ApiService, public data: DataService, private router: Router , private modalController: ModalController) { }
 
   ngOnInit() {
+  }
+
+
+  async openAddressChange() {
+    const modal = await this.modalController.create({
+      component: AddressChangeComponent,
+      // Pass any data you need
+    });
+    await modal.present();
+
+  const { data } = await modal.onWillDismiss();
+  if (data) {
+    // Update the address in your component's state or send it to the backend
+    this.userAddress = data;
+  }
   }
 
   logout(){
