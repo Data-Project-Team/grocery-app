@@ -11,11 +11,11 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'hometab',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {
-        path: 'hometab',
+        path: 'home',
         children: [{
           path: '',
           loadChildren: () => import('../pages/hometab/hometab.module').then( m => m.HometabPageModule)
@@ -24,11 +24,6 @@ const routes: Routes = [
           path: 'details/:id',
           resolve: {payload: ResolverService},
           loadChildren: () => import('./detailspage/detailspage.module').then( m => m.DetailspagePageModule)
-        },
-        {
-          path: 'productspage/:id',
-          resolve: {payload: ResolverService},
-          loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
         }
       ]
     
@@ -39,17 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'categorytab',
-        children: [{
-          path: '',
-          loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
-        },
-        {
-          path: 'productspage/:id',
-          resolve: {payload: ResolverService},
-          loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
-        }
-      ]
-
+        loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
       },
       {
         path: 'cart',
@@ -66,15 +51,9 @@ const routes: Routes = [
       {
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
-      },
-      {
-        path: 'accounttab',
-        loadChildren: () => import('./accounttab/accounttab.module').then( m => m.AccounttabPageModule)
       }
     ] 
-  },   
-  
- 
+  }  
 ];
 
 @NgModule({
