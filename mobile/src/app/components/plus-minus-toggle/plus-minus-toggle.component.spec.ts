@@ -6,7 +6,6 @@ import { PlusMinusToggleComponent } from './plus-minus-toggle.component';
 describe('PlusMinusToggleComponent', () => {
   let component: PlusMinusToggleComponent;
   let fixture: ComponentFixture<PlusMinusToggleComponent>;
-
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PlusMinusToggleComponent ],
