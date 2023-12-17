@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Change Payment Method </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form-container">
+  <form (ngSubmit)="submitPaymentMethod()">
+    <!-- Credit Card Number -->
+    <ion-item>
+      <ion-label position="floating">Card Number</ion-label>
+      <ion-input type="text" [(ngModel)]="paymentMethod.cardNumber" name="cardNumber"></ion-input>
+    </ion-item>
+
+    <!-- Expiration Date -->
+    <ion-item>
+      <ion-label position="floating">Expiration Date</ion-label>
+      <ion-input type="text" [(ngModel)]="paymentMethod.expirationDate" name="expirationDate"></ion-input>
+    </ion-item>
+
+    <!-- CVV -->
+    <ion-item>
+      <ion-label position="floating">CVV</ion-label>
+      <ion-input type="text" [(ngModel)]="paymentMethod.cvv" name="cvv"></ion-input>
+    </ion-item>
+
+    <!-- Submit Button -->
+    <ion-button type="submit" expand="block" class="submit-button">Update Payment Method</ion-button>
+  </form>
+</div>
+</ion-content>

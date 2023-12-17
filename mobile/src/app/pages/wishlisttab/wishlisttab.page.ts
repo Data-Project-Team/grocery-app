@@ -5,10 +5,9 @@ import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
-  selector: 'app-wishlisttab',
+  selector: 'app-wishlist',
   templateUrl: './wishlisttab.page.html',
   styleUrls: ['./wishlisttab.page.scss'],
-  
 })
 export class WishlisttabPage implements OnInit {
   wishlistItems : any = [];
@@ -30,7 +29,6 @@ export class WishlisttabPage implements OnInit {
     const usrCode = localStorage.getItem("usr_code");
 
     const data = '&usrCode='+ usrCode;
-
 
     // this.wishlistItems = [
     //   {
@@ -118,7 +116,6 @@ export class WishlisttabPage implements OnInit {
     //   // Add more items as needed
     // ];
 
-   
     this.api.getData(action, data).then(
       (response: any) => {
         this.wishlistItems = response.data;
@@ -126,7 +123,9 @@ export class WishlisttabPage implements OnInit {
         
       }
     );
+    }
+    
   }
-  }
+  
     
   

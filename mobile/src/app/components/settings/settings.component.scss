@@ -1,0 +1,33 @@
+.form-container {
+    padding: 16px;
+  }
+  
+  ion-item {
+    margin-bottom: 10px;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --border-radius: 8px;
+    --background: #f4f4f4;
+    --min-height: 50px;
+  }
+  
+  ion-label {
+    --color: #333;
+  }
+  
+  ion-input {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --color: #666;
+    --placeholder-color: #999;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    --background: #28a745; /* Green background */
+    --background-activated: #218838; /* Slightly darker green when activated */
+    --background-focused: #218838; /* Slightly darker green when focused */
+    --background-hover: #2ecc71; /* Lighter green on hover */
+    --color: #fff;
+  }
+  
