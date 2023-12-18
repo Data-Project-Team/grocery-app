@@ -7,14 +7,17 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './add-cart-btn.component.html',
   styleUrls: ['./add-cart-btn.component.scss'],
 })
-export class AddcartBtnComponent  implements OnInit {
+export class AddcartBtnComponent {
   @Input() item:any;
-  constructor(public cart: CartService) { }
+  constructor(public cart: CartService) {
 
-  ngOnInit() {}
+  }
+
+  // ngOnInit() {}
 
   addToCart(){
-    this.cart.addToCart(this.item);
+    this.cart.addToCart(this.item.id);
+    
   }
 
 }
