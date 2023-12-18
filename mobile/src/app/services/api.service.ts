@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ApiService {
   serverUrl = 'http://127.0.0.1/grocery-app/backend/api.php';
-  apikey = 'apikey=' + localStorage.getItem("usr_apikey");
+  apikey = '&apikey=' + localStorage.getItem("usr_apikey");
   constructor(private http: HttpClient) { }
 
   
