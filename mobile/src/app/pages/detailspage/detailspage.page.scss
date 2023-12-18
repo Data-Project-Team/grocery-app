@@ -145,8 +145,28 @@ padding: 10px 5px 10px 5px;
     font-size: 14px;
     font-weight: bold;
 }
-.total-wrapper .price{
-    font-size: 20px;
+
+.purchase-icon{
+    width : 50px;
+    height:auto;
+    padding-left: 10px;
+
+
+}
+.purchase-container {
+  display: flex;
+  gap: 20px;
+  align-items : center;
+}
+
+.purchase-count{
+    font-size : 15px;
+    font-weight: bold;
+    
+}
+
+.total-wrapper .price {
+  font-size: 20px;
 }
 .btn{
     width: 100%;

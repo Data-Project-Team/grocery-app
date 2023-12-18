@@ -14,10 +14,12 @@
         <ion-item class="wrapper-1">
           <div class="item">
             <div class="item-name">{{item.name}}</div>
-            <div class="item-price">{{item.final_price}}</div>
-          
+            <div class="purchase-container">
+              <img  src="assets/shopping-bag.png" class="purchase-icon"/>
+              <div class="purchase-count">{{generalpurchase}}</div>
+             </div>
           </div>
-        <app-liked [item] = "item" slot = "end"></app-liked>
+          <app-liked [item] = "item" slot = "end"></app-liked>
         </ion-item>
         <ion-item class="wrapper-2">
           <div class="quantity" slot="start">
