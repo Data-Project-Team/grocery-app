@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { IonModal } from '@ionic/angular';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-cart',
@@ -22,7 +23,7 @@ export class CartPage implements OnInit {
     this.viewCart();
     this.updateTotal();
   }
-  constructor(public cart: CartService){
+  constructor(public cart: CartService, private api: ApiService) {
     var item!:any;
     for (item in this.cartItems){
       if (item.quantity === 0  ){
@@ -84,6 +85,34 @@ export class CartPage implements OnInit {
       for (const item of this.cartItems) {
         this.total += item.final_price * item.quantity;
       }
+  }
+
+  checkout(): void {
+    const usrCode = localStorage.getItem("usr_code");
+
+    for (const item of this.cartItems) {
+      const action = "check_out";
+      const data = `&usrCode=${usrCode}&prodId=${item.id}`;
+
+      this.api.getData(action, data)
+        .then(
+          (response: any) => {
+            if (response.msg === "success") {
+              console.log('Checkout Successful for prodId:', item.id);
+            } else {
+              console.error('Checkout Failed for prodId:', item.id);
+              // Handle the error, show a message to the user, etc.
+            }
+          },
+          (error) => {
+            console.error('Checkout Failed for prodId:', item.id, error);
+            // Handle the error, show a message to the user, etc.
+          }
+        );
     }
+  }
+           
+
+
   
 }
