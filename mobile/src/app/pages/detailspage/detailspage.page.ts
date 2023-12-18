@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 export class DetailspagePage implements OnInit {
   item: any = { quantity: 1 }; // Initialize quantity to 1
   generalpurchase: number = 0;
+  last24hrs:number=0;
   constructor(
     private active: ActivatedRoute,
     public data: DataService,
@@ -45,7 +46,8 @@ export class DetailspagePage implements OnInit {
     this.api.getData(action,data).then(
       (response: any) => {
         if (response.msg === 'success') {
-          this.generalpurchase = response.data.purchaseCount;
+          this.generalpurchase = response.data.totalPurchaseCount;
+          this.last24hrs = response.data.last24HourCount;
         } else {
           console.error('Failed to fetch purchase data');
         }
