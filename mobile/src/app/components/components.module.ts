@@ -11,6 +11,7 @@ import { AddcartBtnComponent } from "./add-cart-btn/add-cart-btn.component";
 import { AddressChangeComponent } from "./address-change/address-change.component";
 import { PaymentMethodChangeComponent } from "./payment-method-change/payment-method-change.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { PlusMinusToggleComponent } from "./plus-minus-toggle/plus-minus-toggle.component";
 
 
 
@@ -23,8 +24,8 @@ import { SettingsComponent } from "./settings/settings.component";
         ReactiveFormsModule
     ],
 
-    declarations:[ProductCardComponent,LikedComponent, SearchComponent,AddcartBtnComponent,AddressChangeComponent, PaymentMethodChangeComponent , SettingsComponent ], 
-    exports:[ProductCardComponent,LikedComponent, AddcartBtnComponent, SearchComponent ,AddressChangeComponent , PaymentMethodChangeComponent , SettingsComponent]
+  declarations: [ProductCardComponent, LikedComponent, SearchComponent, AddcartBtnComponent, AddressChangeComponent, PaymentMethodChangeComponent, SettingsComponent, PlusMinusToggleComponent], 
+    exports:[ProductCardComponent,LikedComponent, AddcartBtnComponent, SearchComponent ,AddressChangeComponent , PaymentMethodChangeComponent , SettingsComponent, PlusMinusToggleComponent]
 
     
 }) 
