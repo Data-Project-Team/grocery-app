@@ -9,9 +9,8 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./detailspage.page.scss'],
 })
 export class DetailspagePage implements OnInit {
-
   item: any = { quantity: 1 }; // Initialize quantity to 1
-
+  generalpurchase: number = 0;
   constructor(
     private active: ActivatedRoute,
     public data: DataService,
@@ -21,6 +20,7 @@ export class DetailspagePage implements OnInit {
   ngOnInit() {
     if (this.active.snapshot.data['payload']) {
       this.item = this.active.snapshot.data['payload'];
+      this.fetchPurchaseData(this.item);
     }
   }
 
@@ -39,6 +39,23 @@ export class DetailspagePage implements OnInit {
     return this.item.final_price * this.item.quantity;
   }
 
+  fetchPurchaseData(prod: any) {
+    const action = "purchasedata";
+    const data = `&prodId=${prod.id}`;
+    this.api.getData(action,data).then(
+      (response: any) => {
+        if (response.msg === 'success') {
+          this.generalpurchase = response.data.purchaseCount;
+        } else {
+          console.error('Failed to fetch purchase data');
+        }
+      },
+      (error) => {
+        console.error('Failed to fetch purchase data', error);
+      }
+    );
+  }
 }
+
 
 
