@@ -63,6 +63,7 @@
         <div class="scroll" *ngIf="isLoading">
 
           <div class="itemdiv" *ngFor="let trend of trending;" >
+            <app-product-card [item]="trend" [style]="'home'"></app-product-card>
           </div>
         </div>
         
