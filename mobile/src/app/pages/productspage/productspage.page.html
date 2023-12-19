@@ -18,14 +18,62 @@
   </ion-item>
   
   <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" >
-    <ng-template>
-      <div class="modal-content">
-        <div class="modal-title">Sort by</div>
-        <ion-list class="modal-list">
-          <!-- <div *ngFor="let option of sortingOptions"
-                    [ngClass]="{ 'selected-sort': currentSort === option.value }"
-                    (click)="sortProducts(option.value)">{{ option.label }}</div> -->
-        </ion-list>
+    <ng-template class="block">
+     
+      <div class="block">
+        <div class="modal-title">Filter</div>
+        <div class="filt">
+          <div class="filter-title">Price Range </div>
+          <ion-range aria-label="Dual Knobs Range" [dualKnobs]="true" 
+          [(ngModel)]="priceRange" (ionChange)="onPriceRangeChange($event)"
+          ></ion-range>
+        </div>
+        
+      
+        <div class="filt">
+          <div class="filter-title">Sort By </div>
+          <div class="scroll" >
+            <div class="catname" *ngFor="let option of sortingOptions" (click)="selectedSort = option.value" [ngClass]="{'selected-filter': selectedSort === option.value}">
+              <div>
+                {{ option.label }}
+              </div>
+            </div> 
+          </div>
+        </div>
+        <div class="filt">
+          <div class="filter-title">Brand</div>
+          <div class="scroll" >
+            <div class="catname"  *ngFor="let brand of brands" (click)="selectedBrand = brand.name"  [ngClass]="{'selected-filter': selectedBrand === brand.name}">
+              <div>
+                {{brand.name}}
+              </div>   
+              
+            </div>
+          </div>
+        </div>
+        <div class="filt">
+          <div class="filter-title">Origin</div>
+          <div class="scroll" >
+            <div class="catname"  *ngFor="let origin of origins" (click)="selectedOrigin = origin.name"  [ngClass]="{'selected-filter': selectedOrigin === origin.name}">
+              <div>
+                {{origin.name}}
+              </div>
+                
+            </div>
+          </div>
+        </div>
+        <div class="btn">
+          <div class="apply-btn">
+            
+            <ion-button class=""  expand="block"(click)="applyFilters()">
+              Apply
+            </ion-button>
+          </div>
+          <div class="apply-btn">
+            <ion-button expand="block" (click)="resetFilters()">Reset</ion-button>
+          </div>
+        </div>
+
         
       </div>
     </ng-template>
