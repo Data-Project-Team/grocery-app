@@ -1,4 +1,3 @@
-
 ion-col{
     width: 100%;
     display: flex;
@@ -15,7 +14,9 @@ ion-col{
     width:  10.5rem;
     border-radius: 20px;
 }
-
+.block{
+    padding: 25px;
+}
 ion-modal{
     --border-radius: 15px;
     --height: auto;
@@ -27,38 +28,81 @@ ion-list{
 .modal-title{
     text-align: center;
     font-family: "rubik-medium";
-    font-size: 24px;
+    font-size: 18px;
     padding-top: 20px;
    
+}
+
+
+.selected-filter {
+
+    div{
+        background-color: #185951 !important;
+    }
+    
+}
    
-}
-
-.modal-list > div{
-
-    font-size: 18px;
-    padding: 20px 0px 20px 20px;
-}
-.selected-sort, .modal-list > div:hover{
-    background: #185951;
-    color: white;
-}
 .sortby{
     color: #262626;
     font-weight: bold;
     ion-icon {
-        font-size: 24px;
+        font-size: 20px;
         
     }
     
     > div{
-        font-size: 20px;
+        font-size: 18px;
         padding-left: 8px;
       
     }
 }
 
-.filter-bar{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px;
-    margin-bottom: 10px;
-    padding: 0 20px;
+.filt-box{
+    display: flex;
+    gap: 7px;
+    padding: 15px;
+}
+.filt{
+    padding-bottom: 20px;
+}
+.filter-title{
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+.scroll{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  
+}
+.catname{
+    flex: 0 0 auto;
+    padding-right: 20px;
+
+    div{
+        height: 35px;
+        padding: 7px 15px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 100%;
+        font-size: 1.2em;
+        background-color: #288277;
+        color:white;
+
+    }
+}
+.btn{
+    display: flex;
+    gap:10px;
+    .reset-btn,.apply-btn{
+        width:300px;
+        --border-radius: 15px;
+    }
+    ion-button.reset-btn{
+        --background-color:#248277 !important;
+}
+
 }
