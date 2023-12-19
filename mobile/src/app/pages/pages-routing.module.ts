@@ -30,6 +30,7 @@ const routes: Routes = [
           resolve: {payload: ResolverService},
           loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
         }
+
       ]
     
       },
@@ -42,13 +43,9 @@ const routes: Routes = [
         loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
       },
       {
-<<<<<<< HEAD
-        path: 'carttab',
-        loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
-=======
+
         path: 'cart',
         loadChildren: () => import('./cart/cart.module').then(m=>m.CartPageModule)
->>>>>>> nancy's-branch
       },
       {
         path: 'wishlisttab',
@@ -62,6 +59,7 @@ const routes: Routes = [
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
       }
+      
     ] 
   }  
 ];
