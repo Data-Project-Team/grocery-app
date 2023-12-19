@@ -10,18 +10,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-    <ion-item class="filter-bar">
-      <ion-item class="sortby" slot="start">
-        <ion-icon src="assets/sort.svg"></ion-icon> <div >Filter</div>
-      </ion-item>
-      <ion-item class="sortby" slot="end">
-        <ion-icon src="assets/arrows.svg" (click)="openModal()"></ion-icon> <div >{{currentSortLabel}}</div>
-      </ion-item>
-      
-    </ion-item>
- 
-  
+  <ion-item class="sortby">
+    <div class="filt-box" slot="end">
+      <ion-icon  class ="filter" src="assets/sort.svg" (click)="openModal()"></ion-icon> <div >Filter</div>
+    </div>
+    
+  </ion-item>
   
   <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" >
     <ng-template>
