@@ -25,11 +25,11 @@ export class DetailspagePage implements OnInit {
     }
   }
 
-  increaseQuantity() {
+  increaseQuantity(prod:any) {
     this.item.quantity++;
   }
 
-  decreaseQuantity() {
+  decreaseQuantity(prod:any) {
     if (this.item.quantity > 1) {
       this.item.quantity--;
     }
