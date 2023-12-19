@@ -5,7 +5,7 @@
     <ion-row>
       <ion-col>
         <div class="product-img">
-
+          <img src = {{item.img}}/>
         </div>
       </ion-col>
     </ion-row>
@@ -13,36 +13,37 @@
       <ion-col size-md="12" >
         <ion-item class="wrapper-1">
           <div class="item">
-            <div class="item-name">Product Name</div>
-            <div class="item-price">1kg, $4.99</div>
-          
+            <div class="item-name">{{item.name}}</div>
+            <div class="purchase-container">
+              <img  src="assets\people.png" class="purchase-icon"/>
+              <div class="purchase-count">{{generalpurchase}}</div>
+              <img  src="assets/clock.png" class="purchase-icon"/>
+              <div class="purchase-count">{{last24hrs}}</div>
+             </div>
           </div>
-        
-          <ion-icon name="heart-outline" slot="end"></ion-icon>
+          <app-liked [item] = "item" slot = "end"></app-liked>
         </ion-item>
         <ion-item class="wrapper-2">
           <div class="quantity" slot="start">
-            <ion-icon name="remove-outline"></ion-icon>
-      
+            <ion-icon name="remove-outline" (click)="decreaseQuantity()"></ion-icon>
+
             <div class="rectangle">
-              <div class="no">1</div>
+              <div class="no">{{ item.quantity }}</div>
             </div>
-      
-            <ion-icon name="add-outline"></ion-icon>
+
+            <ion-icon name="add-outline" (click)="increaseQuantity()"></ion-icon>
           </div>
-          <div class="price" slot="end">
-            $4.99
-          </div>
+          <div class="price" slot="end">EGP <span class="before" *ngIf="item.discount > 0">{{ item.price_before }}</span> {{ item.final_price }}</div>
         </ion-item>
         
         <div class="wrapper-3">
           <img class="vector" src="assets/vector-line.svg" />
           <div class="details">
             <div class="title">
-              Product Details
+              Description
             </div>
             <div class="content">
-              Apples Are Nutritious. Apples May Be Good For Weight Loss. Apples May Be Good For Your Heart. As Part Of A Healtful And Varied Diet.
+              {{item.long_disc}}
             </div>
             
 
@@ -50,9 +51,9 @@
 
           <div class="more">
             <div class="title">
-              More
+              Details
             </div>
-          
+          <ul class = "detail-list" [innerHTML] = " item.details"></ul>
           </div>
 
           
@@ -68,20 +69,16 @@
   </ion-grid>
  
 </ion-content>
-<ion-footer class="ion-padding"  class="ion-no-border">
-  <div class="footer-wrapper" >
+<ion-footer class="ion-padding" class="ion-no-border">
+  <div class="footer-wrapper">
     <div class="total-wrapper">
       <div class="title">Price Total</div>
       <div class="price">
-        $8.49
+        EGP {{ calculateTotalPrice() | number:'1.2-2' }}
       </div>
     </div>
     <div class="btn">
-      <ion-button expand="block">
-        Add to Cart
-      </ion-button>
+      <app-addcart-btn [item]="item"></app-addcart-btn>
     </div>
-   
   </div>
-  
 </ion-footer>

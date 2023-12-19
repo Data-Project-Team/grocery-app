@@ -12,23 +12,45 @@ register();
   styleUrls: ['./hometab.page.scss'],
 })
 export class HometabPage implements OnInit {
-  categories = [
-    //grocery categories and their pictures 
-  ];
+  
 
   trending: any = [];
   onSale: any = [];
   isLoading:boolean = false;
-  liked!:boolean;
+  liked!: boolean;
+  categories: any = [];
+
   
   constructor(private router: Router, public data:DataService, public api: ApiService)  {
     
    }
 
    /// fetching respose 
-   ngOnInit() {
+  ngOnInit() {
+    this.fetchCategories()
     this.fetchTrendingProducts();
     this.fetchOnSale();
+  }
+
+
+
+  fetchCategories() {
+    const action = "fetchcategory";
+    const data = '';
+
+    this.api.getData(action, data).then(
+      (response: any) => {
+        console.log(response);
+        if (response.msg === 'success') {
+          this.categories = response.data;
+        } else {
+          this.categories = [];
+        }
+      },
+      (error: any) => {
+        console.error('Error fetching categories:', error);
+      }
+    );
   }
   
   fetchTrendingProducts(){
@@ -75,7 +97,10 @@ export class HometabPage implements OnInit {
       }
     );
   }
-
+routetoproduct(item:any){
+  this.data.setData('i',item)
+  this.router.navigate(['pages/hometab/productspage/i']);
+}
   
  
 }

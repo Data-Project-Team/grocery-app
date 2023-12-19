@@ -11,11 +11,11 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'hometab',
         pathMatch: 'full'
       },
       {
-        path: 'home',
+        path: 'hometab',
         children: [{
           path: '',
           loadChildren: () => import('../pages/hometab/hometab.module').then( m => m.HometabPageModule)
@@ -40,10 +40,18 @@ const routes: Routes = [
       },
       {
         path: 'categorytab',
-        loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
+        children: [{
+          path: '',
+          loadChildren: () => import('./categorytab/categorytab.module').then( m => m.CategorytabPageModule)
+        },
+        {
+          path: 'productspage/:id',
+          resolve: {payload: ResolverService},
+          loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+        }
+      ]
       },
       {
-
         path: 'cart',
         loadChildren: () => import('./cart/cart.module').then(m=>m.CartPageModule)
       },

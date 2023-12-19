@@ -25,7 +25,7 @@
               <div class="wrapper">
                 
                 <div class="prod-img">
-                  
+                  <img src={{item.img}}/>
                 </div>
                 <div class="prod-info">
                   <div class="top">
@@ -33,7 +33,7 @@
                     <ion-icon  class="delete" src="assets/bin.svg" (click)="openModal(item)"></ion-icon>  
                   </div>
                   <div  class="bottom">
-                    <div class="prod-price">&cent; {{item.final_price}}</div>
+                    <div class="prod-price">EGP {{item.final_price}}</div>
                     <app-plus-minus-toggle [item]="item" (quantityChanged)="onQuantityChanged($event)" ></app-plus-minus-toggle>
                   </div>
                   
@@ -51,14 +51,14 @@
                         <div class="wrapper">
                           
                           <div class="prod-img">
-                            
+                            <img src={{modalItem.img}}/>
                           </div>
                           <div class="prod-info">
                             <div class="top">
                               <div class="prod-name">{{modalItem.name}}</div>
                             </div>
                             <div  class="bottom">
-                              <div class="prod-price">&cent; {{modalItem.final_price}}</div>
+                              <div class="prod-price">EGP {{modalItem.final_price}}</div>
                               <app-plus-minus-toggle [item]="modalItem" (quantityChanged)="onQuantityChanged($event)" ></app-plus-minus-toggle>
                             </div>
                           </div>
@@ -94,10 +94,10 @@
     <ion-row class="ion-justify-content-center">
       <ion-col class="total-wrapper" size="4">
         <div class="title-price">Total price</div>
-        <div class="price">&cent; {{cart.totalPrice | number:'1.2-2'}}</div>
+        <div class="price">EGP {{total | number:'1.2-2'}}</div>
       </ion-col>
       <ion-col class="checkout" size="8">
-        <ion-button fill="clear" shape="round" routerLink="/pages/checkout">
+        <ion-button fill="clear" shape="round" routerLink="/pages/checkout" (click)=checkout()>
           Checkout
         </ion-button>
         

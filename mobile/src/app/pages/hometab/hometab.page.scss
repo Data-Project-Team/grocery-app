@@ -1,4 +1,37 @@
-//swarch bar style
+.search-and-filter-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* Aligns items vertically in the center */
+  }
+  
+  .search-container {
+    flex-grow: 1; /* Allows the search container to take up available space */
+    position: relative; /* Position relative for absolute positioning of search results */
+  }
+  
+  .filter-btn {
+    margin-left: 10px; /* Adjust as needed */
+    width: 20px;
+    height: 20px;
+    color: var(--ion-color-medium);
+    background-color: transparent;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  
+  app-search {
+    flex-grow: 1;
+    --background: white;
+    --border-radius: 20px;
+    padding: 0 2px;
+    --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  }
+  
+  
 
 
 .scroll{

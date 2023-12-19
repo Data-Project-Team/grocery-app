@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
   <ion-grid class="ion-padding">
-    <ion-row>
-      <ion-col>
-        <div class="searchbar">
-          //implement search here
-        </div>
-       
-      </ion-col>
+    <ion-row class="search-and-filter-container">
+      <div class="search-container">
+        <app-search></app-search>   
+      </div>
+          <button class="filter-btn">
+            <ion-icon src='../../../assets/settings-sliders.svg'></ion-icon>
+          </button>
       
     </ion-row>
     <ion-row class="advertrow">
@@ -34,9 +34,9 @@
     <ion-row>
       <ion-col class="categrow" size="auto">
         <div class="scroll" >
-          <div class="catname"  *ngFor="let category of categories">
+          <div class="catname"  *ngFor="let category of categories" (click) ="routetoproduct(category.id)">
             <div>
-              <!-- {{category.name}} -->
+               {{category.name}}
             </div>
           </div>
           
