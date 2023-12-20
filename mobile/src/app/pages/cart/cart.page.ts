@@ -39,6 +39,7 @@ export class CartPage implements OnInit {
         // console.log(response);
         if(response.msg === 'success'){
           this.cartItems = response.data;
+          this.updateTotal();
           
         }else{
           console.log("failed to get cart")
@@ -99,6 +100,9 @@ export class CartPage implements OnInit {
           (response: any) => {
             if (response.msg === "success") {
               console.log('Checkout Successful for prodId:', item.id);
+              this.cart.removeCart(item.id);
+              this.cartItems = [];
+              this.updateTotal();
             } else {
               console.error('Checkout Failed for prodId:', item.id);
               // Handle the error, show a message to the user, etc.

@@ -8,7 +8,7 @@
         <app-liked class="like" [item]="item" ></app-liked>   
       </div> 
       <ion-card-content >
-        <span (click)="gotodetails(item)"> {{item?.name}}</span>
+        <span class="item-name" (click)="gotodetails(item)"> {{item?.name}}</span>
         <div class="price">EGP <span class="before" *ngIf="item.discount>0">{{item.price_before}}</span> {{item?.final_price}}</div> 
         <div class="itemadd">
           <app-addcart-btn [item]="item"></app-addcart-btn>

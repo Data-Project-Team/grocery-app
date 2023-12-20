@@ -1,8 +1,21 @@
+ion-grid{
+    padding-left: 25px;
+}
 ion-col{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
+ion-range {
+    height: 10px; /* Set the height of the range */
+  }
+  
+  /* Customize the appearance of the slider knobs */
+  ion-range::part(knob) {
+    width: 20px; /* Set the width of the knobs */
+    height: 20px; /* Set the height of the knobs */
+    background-color: #007bff; /* Set the background color of the knobs */
+  }
 .skelItem{
     display: flex;
     flex-direction: column;

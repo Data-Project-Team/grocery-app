@@ -29,7 +29,11 @@ const routes: Routes = [
           path: 'productspage/:id',
           resolve: {payload: ResolverService},
           loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
-        }
+        },
+        {
+          path: 'productspage',
+          loadChildren: () => import('./productspage/productspage.module').then(m => m.ProductspagePageModule)
+        },
 
       ]
     

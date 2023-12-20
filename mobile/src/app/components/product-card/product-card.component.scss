@@ -1,8 +1,16 @@
+
 ion-card-content {
     padding:5px 0;
     color: var(--ion-color-dark);
     font-weight: 400;
-
+    .item-name {
+        font-size: 0.9em;
+        display: block; /* Ensures the span behaves as a block element */
+        white-space: nowrap; /* Prevents item name from breaking into multiple lines */
+        overflow: hidden; /* Hides the overflowing content */
+        text-overflow: ellipsis; /* Adds ellipsis (...) for truncated text */
+        max-width: 100%; /* Ensures the text doesn't overflow its container */
+      }
     .price {
         font-size: 1em;
     }
@@ -14,6 +22,7 @@ ion-card-content > span{
 
 .image_wrapper{
     position: relative;
+   
 }
 
 .discount{
@@ -48,9 +57,11 @@ ion-card-content > span{
 
     .image_wrapper {
         position: relative;
+        
         .item-img {
             width:100%;
-            object-fit: cover;
+            height: 100px;
+            object-fit:cover;
             border-radius: 20px;
             background-color: #cdcdcd;
             

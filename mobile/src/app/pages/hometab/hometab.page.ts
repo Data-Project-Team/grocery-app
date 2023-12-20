@@ -22,7 +22,6 @@ export class HometabPage implements OnInit {
 
   
   constructor(private router: Router, public data:DataService, public api: ApiService)  {
-    
    }
 
    /// fetching respose 
@@ -40,9 +39,10 @@ export class HometabPage implements OnInit {
 
     this.api.getData(action, data).then(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         if (response.msg === 'success') {
           this.categories = response.data;
+
         } else {
           this.categories = [];
         }
@@ -60,7 +60,7 @@ export class HometabPage implements OnInit {
 
     this.api.getData(action, data).then(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         if(response.msg === 'success'){
           this.trending = response.data;
           this.isLoading=true;
@@ -97,10 +97,10 @@ export class HometabPage implements OnInit {
       }
     );
   }
-routetoproduct(item:any){
-  this.data.setData('i',item)
-  this.router.navigate(['pages/hometab/productspage/i']);
-}
+  routetoproduct(categoryId:any){
+    this.data.setData('i',categoryId)
+    this.router.navigate(['pages/hometab/productspage/i']);
+  }
   
  
 }
