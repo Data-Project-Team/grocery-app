@@ -6,7 +6,6 @@ class filter extends REST
         global $sql;
         $this->sql = $sql;
     }
-
     private function getProductsByQuery($query) {
         $sql = $this->sql;
 
@@ -40,25 +39,26 @@ class filter extends REST
         }
     }
 
+
     public function Init(){
         $sql = $this->sql;
-        $categoryId = $this->categoryId;        
-
+        $categoryId = $this->categoryId;
+    
         $conditions = [];
-
+        $sortClause = '';
+    
         if (isset($this->brand)) {
             $conditions[] = "PROD_BRAND = {$this->brand}";
         }
-
+    
         if (isset($this->origin)) {
             $conditions[] = "PROD_ORIGIN = {$this->origin}";
         }
-
+    
         if (isset($this->min) && isset($this->max)) {
             $conditions[] = "PROD_FINAL_AMOUNT BETWEEN {$this->min} AND {$this->max}";
         }
-       
-        $sortClause = '';
+    
         if (isset($this->sortby)) {
             switch ($this->sortby) {
                 case "trending":
@@ -77,18 +77,18 @@ class filter extends REST
                     break;
             }
         }
-     
+    
         if (!empty($conditions)) {
             $whereClause = implode(' AND ', $conditions);
             $query = "SELECT * FROM app_products WHERE PROD_STATUS = '1' AND CTG_ID = {$categoryId} AND {$whereClause} {$sortClause}";
             $this->getProductsByQuery($query);
         } else {
             // Handle if no filter criteria provided
-            $this->response(array("msg" => "Error", "data" => "No filter criteria provided"), 400);
+            $query = "SELECT * FROM app_products WHERE PROD_STATUS = '1' AND CTG_ID = {$categoryId} {$sortClause}";
+            $this->getProductsByQuery($query);
         }
-       
-        
     }
+    
 
     public function get_likes($user_code,$prod_id){
         $sql = $this->sql; 
@@ -100,6 +100,6 @@ class filter extends REST
             $exits = '0';
         }
         return $exits;
-    }  
+    }
 }
 ?>

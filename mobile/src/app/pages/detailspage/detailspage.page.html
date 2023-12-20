@@ -1,16 +1,28 @@
-
+<ion-header  class="ion-no-border" >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
 
   <ion-grid>
     <ion-row>
       <ion-col>
+        <div class="discount" *ngIf="item.discount>0">
+          {{item.discount+'%'}}
+        </div>
         <div class="product-img">
           <img src = {{item.img}}/>
+          
         </div>
       </ion-col>
     </ion-row>
     <ion-row class="outer-wrapper">
       <ion-col size-md="12" >
+        
+        <div class="egypt" *ngIf="item.origin ==='Egypt'">100% Egyptian</div>
         <ion-item class="wrapper-1">
           <div class="item">
             <div class="item-name">{{item.name}}</div>
@@ -77,8 +89,7 @@
         EGP {{ calculateTotalPrice() | number:'1.2-2' }}
       </div>
     </div>
-    <div class="btn">
-      <app-addcart-btn [item]="item"></app-addcart-btn>
-    </div>
+   
+      <app-addcart-btn class="btn" [item]="item"></app-addcart-btn>
   </div>
 </ion-footer>

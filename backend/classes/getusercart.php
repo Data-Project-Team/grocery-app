@@ -33,6 +33,8 @@ class getusercart  extends REST
                     'final_price' => round($val['PROD_FINAL_AMOUNT'] -($val['PROD_FINAL_AMOUNT'] * $val['PROD_DISCOUNT']/100), 2),
                     'img' => $val['PROD_IMAGE'],
                     'quantity' => $val["CART_QUANTITY"],
+                    'brand' => $val['PROD_BRAND'],
+                    'origin' => $val['PROD_ORIGIN'],
 
                 );
             }

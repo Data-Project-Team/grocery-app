@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, pipe, switchMap } from 'rxjs';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { filter } from 'rxjs';
 
 
 
@@ -12,8 +11,8 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent  implements OnInit {
-  
+export class SearchComponent implements OnInit {
+  searchQuery: string = '';
   searchResults: any = [];
   showResults = false;
   constructor(
@@ -23,11 +22,17 @@ export class SearchComponent  implements OnInit {
     public data: DataService
     
   ) {
-   
-   
+    this.router.events
+    .pipe(filter((event) => event instanceof NavigationEnd))
+    .subscribe(() => {
+      this.clearSearch();
+    });
   }
 
-  ngOnInit() {}
+
+  ngOnInit(): void {
+  }
+
   onSearch(event:any) {
     const term = event.target.value;
     // Clear previous search results
@@ -36,7 +41,6 @@ export class SearchComponent  implements OnInit {
       .then((response: any) => {
           if(response.msg === 'success'){
             this.searchResults = response.data
-            console.log(this.searchResults);
           }  
         },
         (error) => {
@@ -44,11 +48,25 @@ export class SearchComponent  implements OnInit {
         }
       );  
     }
-     
+    onKeyPress(event: KeyboardEvent) {
+      if (event.key === 'Enter') {
+        // Navigate to the product page with all searched products
+        this.router.navigate(['pages/productspage'], { queryParams: { 
+          products: JSON.stringify(this.searchResults) 
+        } });
+
+        
+      }
+      
+    }
+    clearSearch() {
+      this.searchQuery = ''; // Clear search query
+      this.searchResults = []; // Clear search results
+    }
   
     gotodetails(item:any){
       this.data.setData("i", item);
-      this.router.navigate(['pages/home/details/i']);
+      this.router.navigate(['pages/hometab/details/i']);
     }
     onInputFocus(){
       this.showResults = true;

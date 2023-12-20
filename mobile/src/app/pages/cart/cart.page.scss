@@ -21,7 +21,7 @@
     overflow: hidden;
     img {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
     }
 }
@@ -55,11 +55,15 @@
     
 }
 .prod-price{
-    font-size: 24px;
+    font-size: 20px;
 }
 .total-wrapper{
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
+    .price{
+        font-size: 22px;
+    }
 }
 .checkout{
     text-align: center;
@@ -70,17 +74,13 @@ ion-button{
     width: 100%;
 }
 .total-wrapper{
-    justify-content: space-between;
+    gap:10px;
 }
 .title-price{
-    padding-left: 5px;
      font-size: 1.1rem;
      font-weight: bold;
      color: hsl(0, 0%, 40%);
  }
-.price{
-    font-size:1.8rem;
-}
 .footer-md, .footer-ios {
     -webkit-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
     -moz-box-shadow: 0px -2px 22px rgba(50, 50, 50, 0.1);
