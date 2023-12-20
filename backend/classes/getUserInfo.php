@@ -13,7 +13,7 @@ class getUserInfo extends REST {
         if (isset($this->usrCode)) {
             $usrCode = $this->usrCode;
 
-            $stmt = $sql->Prepare("SELECT USR_FIRSTNAME, USR_OTHERNAME, USR_EMAIL, USR_PHOTO FROM app_users WHERE USR_CODE = ?");
+            $stmt = $sql->Prepare("SELECT USR_FIRSTNAME, USR_OTHERNAME, USR_EMAIL, USR_PHOTO , USR_LOGIN_STATUS FROM app_users WHERE USR_CODE = ?");
             $result = $sql->Execute($stmt, array($usrCode));
 
             if ($result && $result->RecordCount() > 0) {
@@ -26,6 +26,7 @@ class getUserInfo extends REST {
                     'firstname' => $row['USR_FIRSTNAME'],
                     'lastname' => $row['USR_OTHERNAME'],
                     'email' => $row['USR_EMAIL'],
+                    'loginstatus' => $row['USR_LOGIN_STATUS'],
                     'photo' => $photoBase64
                 );
                 $this->response(array("msg" => "success", "data" => $userInfo), 200); 
