@@ -19,6 +19,8 @@ export class AccounttabPage implements OnInit {
   
   ngOnInit() {
     this.getUserInfo();
+    
+   
   }
 
 
@@ -61,6 +63,7 @@ export class AccounttabPage implements OnInit {
   if (!usrCode) {
     
     console.error('User code is missing.');
+    this.userInfo = [];
     return;
   }
 
@@ -71,16 +74,23 @@ export class AccounttabPage implements OnInit {
         this.userInfo = response.data;  
         console.log('get user data successfully ')   
         console.log(this.userInfo)   
+        
       } else {
         
         console.error('Invalid response from server.');
+        this.userInfo = [];
       }
     },
     (error) => {
       
       console.error('Error fetching user info:', error);
+      this.userInfo = [];
     }
   );
+  this.userInfo = [];
+  console.log("hi")
+  console.log("fcgbh: "+this.userInfo.length)
+  console.log("0")
 
   
   

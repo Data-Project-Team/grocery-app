@@ -49,10 +49,52 @@
   .logout-button {
     margin-top: 20px;
   }
+
+  .login-button {
+    margin-top: 20px;
+  }
   
   /* Additional styles for icons */
   ion-icon {
     color: #3880ff;
     margin-right: 10px;
   }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .icon-inner {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .one {
+    font-weight: bold;
+    margin-top: 20px; /* Spacing after the icon */
+  }
+  
+  .two {
+    color: #545454;
+    margin-top: 5px; /* Spacing between texts */
+  }
+  
+  .login-button {
+    --background: #4a90e2;
+    --border-radius: 4px;
+    --color: white;
+    margin-top: 20px; /* Spacing after texts */
+    font-size: 1rem;
+    padding: 8px 20px;
+  }
+  
+  
   

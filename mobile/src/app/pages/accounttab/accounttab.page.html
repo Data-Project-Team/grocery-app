@@ -6,6 +6,7 @@
 
 <ion-content class="ion-padding" [fullscreen]="true">
   <div class="profile-container">
+    <div *ngIf="userInfo.loginstatus == 1" class="userprofile">
     <div class="profile-header">
       <div class="profile-image"> 
         <img *ngIf="userInfo.photo" [src]="userInfo.photo" alt="User Photo" class="profile-image">
@@ -47,8 +48,21 @@
       </ion-item>
     </ion-list>
 
-    <ion-button class="logout-button" (click)="logout()" expand="block" fill="outline" shape="round">
+    <ion-button  class="logout-button" (click)="logout()" expand="block" fill="outline" shape="round">
       Log Out
     </ion-button>
+  </div>
+  <div *ngIf="userInfo.length == 13" class="container">
+    <div class="icon-inner">
+      <img class="no-user-icon" slot="icon-only" src="assets/download.png"/>
+    </div>
+    <p class="one">No user logged in</p>
+    <p class="two">Log in to continue</p>
+    <ion-button class="login-button" routerLink="/login" expand="block">
+      Log In
+    </ion-button>
+  </div>
+  
+  
   </div>
 </ion-content>
