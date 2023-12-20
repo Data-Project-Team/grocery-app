@@ -14,10 +14,13 @@ import { SettingsComponent } from '../../components/settings/settings.component'
   styleUrls: ['./accounttab.page.scss'],
 })
 export class AccounttabPage implements OnInit {
-
+  userInfo : any  = [];
   constructor(public api:ApiService, public data: DataService, private router: Router , private modalController: ModalController) { }
-
+  
   ngOnInit() {
+    this.getUserInfo();
+    
+   
   }
 
 
@@ -51,6 +54,46 @@ export class AccounttabPage implements OnInit {
     });
      await modal.present();
      const { data } = await modal.onWillDismiss();
+  }
+
+  getUserInfo(){
+    const action = "getUserInfo";
+    const usrCode = localStorage.getItem("usr_code");
+
+  if (!usrCode) {
+    
+    console.error('User code is missing.');
+    this.userInfo = [];
+    return;
+  }
+
+  const data = '&usrCode=' + usrCode; 
+  this.api.getData(action, data).then(
+    (response: any) => {
+      if (response && response.data) {
+        this.userInfo = response.data;  
+        console.log('get user data successfully ')   
+        console.log(this.userInfo)   
+        
+      } else {
+        
+        console.error('Invalid response from server.');
+        this.userInfo = [];
+      }
+    },
+    (error) => {
+      
+      console.error('Error fetching user info:', error);
+      this.userInfo = [];
+    }
+  );
+  this.userInfo = [];
+  console.log("hi")
+  console.log("fcgbh: "+this.userInfo.length)
+  console.log("0")
+
+  
+  
   }
 
   logout(){

@@ -10,25 +10,32 @@ import { ApiService } from '../../services/api.service'; // Adjust path as neede
 export class PaymentMethodChangeComponent {
   paymentMethod = {
     cardNumber: '',
+    nameOnCard: '' , 
     expirationDate: '',
     cvv: ''
   };
 
   constructor(
     private modalController: ModalController,
-    private api: ApiService // Adjust as needed
+    private api: ApiService 
   ) {}
 
   async submitPaymentMethod() {
-    const usr_code = localStorage.getItem("usr_code");
-    const action = "updatePaymentMethod"; // Replace with your actual API action
-    const data = `&cardNumber=${this.paymentMethod.cardNumber}&expirationDate=${this.paymentMethod.expirationDate}&cvv=${this.paymentMethod.cvv}&userid=${usr_code}`;
+    const usr_code = localStorage.getItem("usr_code")!;
+    const action = "paymentmethod"; 
+
+    const data = 
+                 `&cardnumber=${encodeURIComponent(this.paymentMethod.cardNumber)}` +
+                 `&nameoncard=${encodeURIComponent(this.paymentMethod.nameOnCard)}` +
+                 `&expirationdate=${encodeURIComponent(this.paymentMethod.expirationDate)}` +
+                 `&cvv=${encodeURIComponent(this.paymentMethod.cvv)}` +
+                 `&userCode=${encodeURIComponent(usr_code)}`;
 
     this.api.getData(action, data).then(
       (response: any) => {
         if (response.msg === "success") {
           this.modalController.dismiss(this.paymentMethod);
-          // Optionally, redirect or show a success message
+
         } else {
           // Handle error
           console.error('Payment method update failed:', response.msg);
@@ -42,6 +49,6 @@ export class PaymentMethodChangeComponent {
       }
     );
 
-    await this.modalController.dismiss(this.paymentMethod);
+    
   }
 }

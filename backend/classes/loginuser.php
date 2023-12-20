@@ -13,10 +13,14 @@ class loginuser extends REST{
         $crypt = new Crypt();
         $password = $crypt->loginPassword($this->usname,$this->pwd);
         
-        $stmt = $sql->Execute($sql->Prepare("SELECT USR_CODE,USR_EMAIL,USR_APIKEY FROM app_users WHERE USR_USERNAME=".$sql->Param('a')." AND USR_PASSWORD=".$sql->Param('b')." AND USR_STATUS=".$sql->Param('c')." "),array($this->usname,$password,'1'));
+        $stmt = $sql->Execute($sql->Prepare("SELECT USR_CODE,USR_EMAIL,USR_APIKEY FROM app_users WHERE USR_USERNAME=".$sql->Param('a')." AND USR_PASSWORD=".$sql->Param('b')." AND USR_STATUS=".$sql->Param('c')." "),array($this->usname,$password,'1') , ("UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_USERNAME=".$sql->Param('a')."" ));
 
         if($stmt->RecordCount() > 0){
             $result = $stmt->FetchRow();
+
+            $updateQuery = "UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_USERNAME = ?";
+            $sql->Execute($sql->Prepare($updateQuery), array($this->usname));
+            
             $userapikey = $result['USR_APIKEY'];
             $clientid = $result['USR_CODE'];
             $checkinit = $sql->Execute($sql->Prepare("SELECT INIT_ID FROM app_init WHERE INIT_USRCODE=".$sql->Param('a')." "),array($this->userid));
@@ -24,6 +28,8 @@ class loginuser extends REST{
                     $id = $checkinit->FetchRow();
                     $code = $id['INIT_ID'];
                     $sql->Execute($sql->Prepare("UPDATE app_init SET INIT_APIKEY=".$sql->Param('a').",INIT_USRCODE=".$sql->Param('b').",INIT_STATUS='2' WHERE INIT_ID=".$sql->Param('c').""),array($userapikey,$clientid,$code));
+                    
+
                     $this->response(array('msg'=>'success','data'=>$result),200);
                 }else{
                     $this->response(array('msg'=>'error','data'=>'user-not-found'),404);

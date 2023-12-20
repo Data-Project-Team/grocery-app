@@ -43,6 +43,10 @@ const routes: Routes = [
         loadChildren: () => import('./hometab/hometab.module').then( m => m.HometabPageModule)
       },
       {
+        path: 'accounttab',
+        loadChildren: () => import('./accounttab/accounttab.module').then( m => m.AccounttabPageModule)
+      },
+      {
         path: 'categorytab',
         children: [{
           path: '',
