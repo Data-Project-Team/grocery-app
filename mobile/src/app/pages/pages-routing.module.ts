@@ -24,7 +24,13 @@ const routes: Routes = [
           path: 'details/:id',
           resolve: {payload: ResolverService},
           loadChildren: () => import('./detailspage/detailspage.module').then( m => m.DetailspagePageModule)
-        }
+        },
+        {
+          path: 'productspage/:id',
+          resolve: {payload: ResolverService},
+          loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
+        }
+
       ]
     
       },
@@ -65,6 +71,7 @@ const routes: Routes = [
         path: 'productspage',
         loadChildren: () => import('./productspage/productspage.module').then( m => m.ProductspagePageModule)
       }
+      
     ] 
   }  
 ];
