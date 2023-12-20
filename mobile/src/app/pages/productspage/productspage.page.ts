@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { Observable } from 'rxjs';
 @Component({
@@ -13,6 +13,7 @@ export class ProductspagePage  {
   @ViewChild('modal')modal!: IonModal;
 
   products:any = [];
+  fromsearch = false;
   params: string = '';
   ctgname: string = '';
   isLoading:boolean = false;
@@ -26,38 +27,43 @@ export class ProductspagePage  {
     { label: 'Price: highest to low', value: 'descending' }
   ];
 
-  brands = [
-    { name: 'Grocera' },
-    { name: 'Almarai' },
-    { name: 'Juhayna' },
-    { name: 'Heinz' }
-  ];
-  origins = [
-    { name: 'Egypt' },
-    { name: 'USA' },
-    { name: 'France' },
-    { name: 'Saudi Arabia' },
-    { name: 'Emirates' },
-  ];
-  priceRange = { lower: 0, upper: 100 }; // Initialize with default values
+  options:any =[];
+
+  priceRange = { lower: 0, upper: 500 }; 
   selectedBrand: string = '';
   selectedOrigin: string = '';
   selectedSort: string = '';
  
   
   
-  constructor(public api: ApiService, public data: DataService, private router: Router) {
+  constructor(public api: ApiService, public data: DataService, private router: Router, private route:ActivatedRoute) {
     
+    this.route.queryParams.subscribe((params) => {
+      if (params) {
+        this.products = JSON.parse(params['products']);
+        console.log(this.products)
+        this.fromsearch=true;
+        // If products exist from search, display them
+        if (this.products && this.products.length > 0) {
+          this.isLoading = true;
+        }
+      }
+    });
     const catinfo: any = this.data.getData("i");
-    
+    if (catinfo){
     this.params = catinfo.id;
     this.ctgname= catinfo.name;
+    }
+
     
    }
 
    ionViewDidEnter(){
-    this.fetchProductsByParams();
-    console.log(this.params);
+    console.log(this.fromsearch);
+    if (this.fromsearch === false) {
+      this.fetchProductsByParams();
+      this.fetchoptions();
+    } 
   
   }
 
@@ -81,7 +87,22 @@ export class ProductspagePage  {
       }
     );
   }
- 
+  fetchoptions(){
+    const action = "filteroptions";
+    const data = '&categoryId=' + this.params;
+
+    this.products=[];
+    this.api.getData(action, data).then(
+      (response: any) => {
+        if(response.msg === 'success'){
+          this.options = response.data
+        }
+      },
+      (error) => {
+        console.error('Error fetching options:', error);
+      }
+    );
+  }
 
 
  
@@ -98,13 +119,27 @@ export class ProductspagePage  {
       origin: this.selectedOrigin,
       sort: this.selectedSort
     };
+  
     const action = "filter";
     const usrCode = localStorage.getItem("usr_code");
-    const data = '&usrCode=' + usrCode +'&categoryId=' + this.params + '&brand=\''  + filters.brand + '\'&min=' + filters.priceRange.lower + '&max=' + filters.priceRange.upper + '&origin=\'' + filters.origin + '\'&sortby=' +filters.sort;
+    let data = `&usrCode=${usrCode}&categoryId=${this.params}`;
+    data += `&min=${filters.priceRange.lower}&max=${filters.priceRange.upper}`;
+    if (filters.brand) {
+      data += `&brand='${filters.brand}'`;
+    }
+  
+    if (filters.origin) {
+      data += `&origin='${filters.origin}'`;
+    }
+  
+    if (filters.sort) {
+      data += `&sortby=${filters.sort}`;
+    }
+  
     console.log(data);
+  
     this.api.getData(action, data).then(
-      (response: any) => {
-        console.log(response);
+      (response:any) => {
         if (response.msg === 'success') {
           this.products = response.data;
           this.isLoading = true;
@@ -117,17 +152,14 @@ export class ProductspagePage  {
         console.error('Error applying filters:', error);
       }
     );
-    
   }
+  
   resetFilters() {
     this.selectedBrand = '';
-    this.priceRange = { lower: 0, upper: 100 }; // Reset to default values
+    this.priceRange = { lower: 0, upper: 500 }; // Reset to default values
     this.selectedOrigin = '';
     this.selectedSort='';
-  }
-   
-
-
-  
-  
+    this.fetchProductsByParams();
+    this.modal.dismiss(); 
+ }
 }

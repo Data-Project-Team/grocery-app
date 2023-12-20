@@ -36,6 +36,8 @@ class fetchwishlist  extends REST
                     'final_price' => round($val['PROD_FINAL_AMOUNT'] -($val['PROD_FINAL_AMOUNT'] * $val['PROD_DISCOUNT']/100), 2),
                     'img' => $val['PROD_IMAGE'],
                     'liked' => $this->get_likes($this->usrCode, $val['PROD_ID']),
+                    'brand' => $val['PROD_BRAND'],
+                    'origin' => $val['PROD_ORIGIN'],
                 );
             }
             $this->response(array("msg"=>"success","data"=>$wishlist), 200); 

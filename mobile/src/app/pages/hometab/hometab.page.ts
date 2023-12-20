@@ -19,6 +19,7 @@ export class HometabPage implements OnInit {
   isLoading:boolean = false;
   liked!: boolean;
   categories: any = [];
+  egypt: any = [];
 
   
   constructor(private router: Router, public data:DataService, public api: ApiService)  {
@@ -27,8 +28,11 @@ export class HometabPage implements OnInit {
    /// fetching respose 
   ngOnInit() {
     this.fetchCategories()
-    this.fetchTrendingProducts();
-    this.fetchOnSale();
+    this.fetchby('egypt')
+    this.fetchby('trending')
+    this.fetchby('onsale')
+    // this.fetchTrendingProducts();
+    // this.fetchOnSale();
   }
 
 
@@ -52,55 +56,64 @@ export class HometabPage implements OnInit {
       }
     );
   }
-  
-  fetchTrendingProducts(){
+  fetchby(by:any){
     const action = "fetchproducts";
     const usrCode = localStorage.getItem("usr_code");
-    const data = '&usrCode='+usrCode + '&fetchby=trending';
-
-    this.api.getData(action, data).then(
-      (response: any) => {
-        // console.log(response);
-        if(response.msg === 'success'){
-          this.trending = response.data;
-          this.isLoading=true;
-          console.log("Success Fetching Trending Products")
-        } else {
-          this.trending = []
-          this.isLoading=false;
-        }  
-      },
-      (error) => {
-        console.error('Error Fetching Trending Products:', error);
-      }
-    );
-  }
-
-  fetchOnSale(){
-    const action = "fetchproducts";
-    const usrCode = localStorage.getItem("usr_code");
-    const data = '&usrCode='+usrCode + '&fetchby=onSale';
-
+    let fetchby= by;
+    const data = '&usrCode='+usrCode + '&fetchby='+fetchby;
+    
     this.api.getData(action, data).then(
       (response: any) => {
         if(response.msg === 'success'){
-          this.onSale = response.data;
+          if (response.msg === 'success') {
+            switch (by) {
+              case 'egypt':
+                this.egypt = response.data; 
+                console.log("Success Fetching Origin Products");
+                break;
+              case 'onsale':
+                this.onSale = response.data; 
+                console.log("Success Fetching On Sale Products");
+                break;
+              case 'trending':
+                this.trending = response.data; 
+                console.log("Success Fetching Trending Products");
+                break;
+              default:
+                break;
+            }
           this.isLoading=true;
           console.log("Success Fetching Products")
         } else {
-          this.trending = []
-          this.isLoading=false;  
-        }  
+          switch (by) {
+            case 'egypt':
+              this.isLoading=false;
+              this.egypt = [];
+              break;
+            case 'onsale':
+              this.isLoading=false;
+              this.onSale = [];
+              break;
+            case 'trending':
+              this.isLoading=false;
+              this.trending = [];
+              break;
+            default:
+              break;
+            }
+          }
+        }
       },
       (error) => {
-        console.error('Error Fetching OnSale Products:', error);
+        console.error('Error Fetching Products:', error);
       }
-    );
-  }
+    );
+  }
+  
+
   routetoproduct(categoryId:any){
     this.data.setData('i',categoryId)
     this.router.navigate(['pages/hometab/productspage/i']);
   }
-  
- 
+
 }

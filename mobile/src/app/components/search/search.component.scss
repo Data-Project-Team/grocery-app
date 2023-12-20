@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   border-radius: 20px;
   padding: 5px 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -24,13 +24,8 @@
 
 /* Style adjustments for search results */
 .search-menu {
-  background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 8px;
-  margin-top: 10px;
-
-  
   position: absolute;
   top: 100%; /* Position the results directly below the search bar */
   left: 0;
@@ -40,9 +35,7 @@
 
 ion-item {
   background-color: #ffffff;
-  border-radius: 5px;
-  margin-bottom: 8px;
-  padding: 10px;
+  border-radius: 15px;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -51,13 +44,9 @@ ion-item:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.text {
+
+.text{
   color: #333;
   font-size: 16px;
-}
-
-.text div {
-  color: #666;
-  font-size: 14px;
-  margin-top: 4px;
+  margin-left: 10px;
 }

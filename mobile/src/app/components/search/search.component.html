@@ -1,21 +1,16 @@
 
 <div class="search">
   <ion-icon slot="icon-only" name="search" ></ion-icon>
-  <input (keyup)="onSearch($event)" (focus)="onInputFocus()" (blur)="onInputBlur()" type="search" placeholder="Search"/>
+  <input [(ngModel)]="searchQuery" (keyup)="onSearch($event)" (focus)="onInputFocus()" (blur)="onInputBlur()" (keypress)="onKeyPress($event)" type="search" placeholder="Search"/>
 
 </div>
 
-<!-- Display Search Results -->
 <div class="search-menu" *ngIf="searchResults.length > 0">  
   <ion-list >
-  <ion-item *ngFor="let result of searchResults"  (click)="gotodetails(result)"> 
+  <ion-item *ngFor="let result of searchResults.slice(0, 5)"  (click)="gotodetails(result)"> 
     <div class="text">
-      {{ result.name }} 
-      <div>
-      {{ result.short_disc }}
+      {{ result.name}} - {{result.brand }} 
     </div>
-    </div>
-    
   </ion-item>
 </ion-list>
 </div>

@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title *ngIf="ctgname">{{ctgname}}</ion-title>
 
     
   </ion-toolbar>
@@ -43,9 +44,9 @@
         <div class="filt">
           <div class="filter-title">Brand</div>
           <div class="scroll" >
-            <div class="catname"  *ngFor="let brand of brands" (click)="selectedBrand = brand.name"  [ngClass]="{'selected-filter': selectedBrand === brand.name}">
+            <div class="catname"  *ngFor="let brand of options.brands" (click)="selectedBrand = brand"  [ngClass]="{'selected-filter': selectedBrand === brand}">
               <div>
-                {{brand.name}}
+                {{brand}}
               </div>   
               
             </div>
@@ -54,9 +55,9 @@
         <div class="filt">
           <div class="filter-title">Origin</div>
           <div class="scroll" >
-            <div class="catname"  *ngFor="let origin of origins" (click)="selectedOrigin = origin.name"  [ngClass]="{'selected-filter': selectedOrigin === origin.name}">
+            <div class="catname"  *ngFor="let origin of options.origins" (click)="selectedOrigin = origin"  [ngClass]="{'selected-filter': selectedOrigin === origin}">
               <div>
-                {{origin.name}}
+                {{origin}}
               </div>
                 
             </div>

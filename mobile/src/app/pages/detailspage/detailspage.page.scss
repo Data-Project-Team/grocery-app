@@ -13,6 +13,14 @@ padding:0px;
 ion-col{
 padding: 0px;
 }
+.egypt{
+    position: absolute;
+    right: 0;
+    width: max-content;
+    height: max-content;
+    z-index: 999;
+    font-weight: 600;
+}
 .item .item-name {
 font-size: 20px;
 font-weight: bold;  
@@ -35,7 +43,7 @@ ion-button {
   width: 100%;
   overflow: hidden;
   border-radius: 0px 0px 25px 25px;
-  position: relative;;
+  position: relative;
 
   img {
     width: 100%;
@@ -44,7 +52,9 @@ ion-button {
     border-radius: 0px 0px 25px 25px;
     border: 3px solid #fff;
   }
+
 }
+
 .discount{
     position: absolute;
     right: 0;
@@ -102,10 +112,12 @@ display: flex;
 }
 .outer-wrapper{
 padding:15px;
+
 }
 .wrapper-1{
 padding: 15px 0 5px 0;
 }
+
 .item{
 position: relative;
 display: flex;

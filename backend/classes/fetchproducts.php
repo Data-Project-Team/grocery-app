@@ -22,17 +22,11 @@ class fetchproducts  extends REST
             if ($fetchby === "trending") {
                 $query .= "ORDER BY PROD_VIEW_COUNT DESC, PROD_LIKE_COUNT DESC ";
             }
-            if ($fetchby === "onSale") {
+            if ($fetchby === "onsale") {
                 $query .= "AND PROD_DISCOUNT > 0";
             }
-            if ($fetchby === "descending"){
-                $query .= "ORDER BY PROD_FINAL_AMOUNT DESC";
-            }
-            if ($fetchby === "ascending"){
-                $query .= "ORDER BY PROD_FINAL_AMOUNT ASC";
-            }
-            if ($fetchby === "newest"){
-                $query .= "ORDER BY PROD_INPUTED_DATE ASC";
+            if ($fetchby === "egypt") {
+                $query .="AND PROD_ORIGIN = 'Egypt'";
             }
                 
         }
@@ -60,7 +54,7 @@ class fetchproducts  extends REST
                         'liked' => $this->get_likes($this->usrCode, $val['PROD_ID']),
                         'quantity' => 1,
                         'brand' => $val['PROD_BRAND'],
-
+                        'origin' => $val['PROD_ORIGIN'],
                     );
                 }
                 $this->response(array("msg"=>"success","data"=>$productsById), 200); 
