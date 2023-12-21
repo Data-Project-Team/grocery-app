@@ -15,11 +15,12 @@ class registeruser extends REST
         $clientid = $engine->generateCode('app_users','COL','USR_CODE');
         $userapikey = $engine->generateAPIKey();
         $email = $this->usname;
+        $username = $this->name;
        // var_dump($clientid.' | '.$password. ' | '. $userapikey); die();
 
         if(!empty($this->usname) && !empty($this->pwd)){
             // $sql->debug = true;
-            $stmt = $sql->Execute($sql->Prepare("INSERT INTO app_users (USR_CODE,USR_USERNAME,USR_PASSWORD,USR_EMAIL,USR_APIKEY) VALUES(".$sql->Param('a').",".$sql->Param('b').",".$sql->Param('c').",".$sql->Param('d').",".$sql->Param('e').")"),array($clientid,$this->usname,$password,$email,$userapikey));
+            $stmt = $sql->Execute($sql->Prepare("INSERT INTO app_users (USR_CODE,USR_USERNAME,USR_PASSWORD,USR_EMAIL,USR_APIKEY , USR_FIRSTNAME) VALUES(".$sql->Param('a').",".$sql->Param('b').",".$sql->Param('c').",".$sql->Param('d').",".$sql->Param('e'). ",".$sql->Param('f').")"),array($clientid,$this->usname,$password,$email,$userapikey , $username));
 
             if ($stmt == true){
                 $checkinit = $sql->Execute($sql->Prepare("SELECT INIT_ID FROM app_init WHERE INIT_USRCODE=".$sql->Param('a')." "),array($this->userid));
