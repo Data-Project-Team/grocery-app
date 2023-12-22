@@ -7,10 +7,10 @@
 
 $engine	  = "mysqli";
 $port     = "3306";
-$server   = "127.0.0.1";
-$username = "root";
-$password = ""; 
-$database = "grocery";
+$server   = "bjketuik1cwqmechbakb-mysql.services.clever-cloud.com";
+$username = "utgjxuwi5w5q9kke";
+$password = "uUE1pkS3kKLG4wRMDB01"; 
+$database = "bjketuik1cwqmechbakb";
 
 
 ?>
