@@ -13,9 +13,6 @@ class check_out extends REST {
             $usrCode = $this->usrCode;
             $prodId = $this->prodId;
 
-            // Assuming you have user information like $usrCode, $prodId in your request
-
-
             $sqlInsert = $sql->Execute($sql->Prepare("INSERT INTO app_orders (USR_CODE, PROD_ID) VALUES (?, ?)"), array($usrCode, $prodId));
 
             if ($sqlInsert) {
