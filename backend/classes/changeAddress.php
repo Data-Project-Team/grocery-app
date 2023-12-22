@@ -1,5 +1,5 @@
 <?php
-class changeAddress extends REST {
+class changeaddress extends REST {
     function __construct() {
         parent::__construct();
         global $sql;

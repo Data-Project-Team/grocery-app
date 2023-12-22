@@ -1,10 +1,5 @@
 <?php
- /**
- * Created by VSCode.
- * User: Reggie
- * Date: 8/5/2017
- * Time: 5:21 PM
- */
+
 class logout extends REST{
     public function __construct(){
         parent :: __construct();

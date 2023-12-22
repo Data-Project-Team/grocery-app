@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  serverUrl = 'http://files.000webhost.com/grocery-app/backend/api.php';
+  serverUrl = 'http://16.16.64.199/backend/api.php';
   apikey = '&apikey=' + localStorage.getItem("usr_apikey");
   constructor(private http: HttpClient) { }
 
@@ -31,7 +31,7 @@ export class ApiService {
     var httpHeader = {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
     };
-    const payload = this.apikey+'&actions='+ action + data;
+    const payload = '&apikey=' + localStorage.getItem("usr_apikey")+'&actions='+ action + data;
     return new Promise((resolve, rejects)=>{
       try {
         this.http.post(this.serverUrl, payload, httpHeader).subscribe((res: any)=>{

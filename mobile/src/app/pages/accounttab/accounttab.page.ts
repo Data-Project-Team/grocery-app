@@ -57,43 +57,39 @@ export class AccounttabPage implements OnInit {
   }
 
   getUserInfo(){
-    const action = "getUserInfo";
+    const action = "getuserinfo";
     const usrCode = localStorage.getItem("usr_code");
 
-  if (!usrCode) {
-    
-    console.error('User code is missing.');
-    this.userInfo = [];
-    return;
-  }
+    if (!usrCode) {
+      
+      console.error('User code is missing.');
+      this.userInfo = [];
+      return;
+    }
 
-  const data = '&usrCode=' + usrCode; 
-  this.api.getData(action, data).then(
-    (response: any) => {
-      if (response && response.data) {
-        this.userInfo = response.data;  
-        console.log('get user data successfully ')   
-        console.log(this.userInfo)   
+    const data = '&usrCode=' + usrCode; 
+    this.api.getData(action, data).then(
+      (response: any) => {
+        if(response.msg === 'success'){
+          if (response.data) {
+            this.userInfo = response.data;  
+            console.log('get user data successfully ')   
+            console.log(this.userInfo);   
+            
+          } else {
+            
+            console.error('Invalid response from server.');
+            this.userInfo = [];
+          }
+      }
+      },
+      (error) => {
         
-      } else {
-        
-        console.error('Invalid response from server.');
+        console.error('Error fetching user info:', error);
         this.userInfo = [];
       }
-    },
-    (error) => {
-      
-      console.error('Error fetching user info:', error);
-      this.userInfo = [];
-    }
-  );
-  this.userInfo = [];
-  console.log("hi")
-  console.log("fcgbh: "+this.userInfo.length)
-  console.log("0")
-
-  
-  
+    );
+    
   }
 
   logout(){
@@ -112,8 +108,6 @@ export class AccounttabPage implements OnInit {
           .then(function (response:any){
             localStorage.setItem("usr_apikey", response.data.initcode);
             localStorage.setItem("usr_code",response.data.initid);
-            localStorage.setItem("usr_cipher",response.data.initcipher);
-            localStorage.setItem("Cart", "[]")
           });
           this.router.navigate(['login']);
         }

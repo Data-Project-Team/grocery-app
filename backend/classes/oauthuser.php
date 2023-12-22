@@ -1,13 +1,5 @@
 <?php
 
-/**
- * oauthuser short summary.
- *
- * oauthuser description.
- *
- * @version 1.0
- * @author Reggie
- */
 class oauthuser  extends REST
 {
     function __construct(){

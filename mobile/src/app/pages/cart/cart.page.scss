@@ -15,14 +15,13 @@
 }
 .prod-img {
     height: 115px;
-    min-width: 110px;
+    width: 55%;
     border-radius: 20px;
-    background-color: #cdcdcd;
-    overflow: hidden;
+    
     img {
         width: 100%;
-        height: auto;
-        object-fit: cover;
+        height: 100%;
+        object-fit:contain;
     }
 }
 
@@ -40,11 +39,16 @@
     justify-content: space-between;
 }
 .prod-name{
+    width: auto;
     font-size: 24px;
     font-family: "rubik-medium";
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 .delete{
-    font-size: 1.5em;
+    padding-top: 5px;
+    font-size: 22px;
+    height: 22px;
 }
 .bottom{
 

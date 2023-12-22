@@ -30,7 +30,7 @@
                 <div class="prod-info">
                   <div class="top">
                     <div class="prod-name">{{item.name}}</div>
-                    <ion-icon  class="delete" src="assets/bin.svg" (click)="openModal(item)"></ion-icon>  
+                    <img  class="delete" src="assets/bin.svg" (click)="openModal(item)"/>
                   </div>
                   <div  class="bottom">
                     <div class="prod-price">EGP {{item.final_price}}</div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="btns">
                       <ion-button shape="round" class="cancel-btn" (click)="modal.dismiss()"> Cancel</ion-button>
-                      <ion-button shape="round" class="remove-btn" (click)="removeItem(item); modal.dismiss()">Yes, remove</ion-button>
+                      <ion-button shape="round" class="remove-btn" (click)="removeItem(modalItem); modal.dismiss()">Yes, remove</ion-button>
                     </div>
                   </div>
                   

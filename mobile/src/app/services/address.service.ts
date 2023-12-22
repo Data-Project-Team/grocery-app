@@ -9,7 +9,7 @@ export class AddressService {
   constructor(private api: ApiService) {}
 
   changeAddress(usrCode : any , address: any): Promise<any> {
-    const action = "changeAddress";
+    const action = "changeaddress";
 
     const data = 
                  `&street=${encodeURIComponent(address.street)}` +

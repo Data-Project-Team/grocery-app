@@ -1,6 +1,6 @@
 <?php
 
-class getUserInfo extends REST {
+class getuserinfo extends REST {
     function __construct() {
         parent::__construct();
         global $sql;
