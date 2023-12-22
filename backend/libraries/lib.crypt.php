@@ -16,6 +16,10 @@ class Crypt{
 		return  hash("sha256",$pepper.$password.$salt,false);
 	}
 
+	public function verifyPassword($username, $password, $storedHash) {
+        $hash = $this->loginPassword($username, $password);
+        return hash_equals($hash, $storedHash);
+    }
 	public function cipher(){
 		return crypt(openssl_random_pseudo_bytes(16),'EH');
 	}

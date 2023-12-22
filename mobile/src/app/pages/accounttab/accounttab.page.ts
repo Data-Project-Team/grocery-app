@@ -18,9 +18,10 @@ export class AccounttabPage implements OnInit {
   constructor(public api:ApiService, public data: DataService, private router: Router , private modalController: ModalController) { }
   
   ngOnInit() {
+      
+  }
+  ionViewDidEnter(){
     this.getUserInfo();
-    
-   
   }
 
 

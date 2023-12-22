@@ -21,32 +21,41 @@ export class SettingsComponent {
 
   async changePassword() {
     if (this.passwords.newPassword !== this.passwords.confirmNewPassword) {
-      // Handle password mismatch
-      console.error('Passwords do not match');
+      alert('Passwords do not match'); 
       return;
     }
+    console.log("passwords match")
+    
 
-    const usr_code = localStorage.getItem("usr_code");
-    const action = "changePassword"; // Replace with your actual API action
-    const data = `&oldPassword=${this.passwords.oldPassword}&newPassword=${this.passwords.newPassword}&userid=${usr_code}`;
+    const userId = localStorage.getItem("usr_code");
+    const username = localStorage.getItem("usr_email");
 
+    if (!userId || !username) {
+      alert('User ID is missing');
+      return;
+    }
+    const action = "changepassword"; 
+
+    const data = 
+                 `&oldPassword=${encodeURIComponent(this.passwords.oldPassword)}` +
+                 `&newPassword=${encodeURIComponent(this.passwords.newPassword)}` +
+                 `&username=${encodeURIComponent(username)}` +
+                 `&userid=${encodeURIComponent(userId)}`;
+    
     this.api.getData(action, data).then(
       (response: any) => {
         if (response.msg === "success") {
+          alert('Password successfully changed'); 
           this.modalController.dismiss();
-          // Optionally, redirect or show a success message
         } else {
-          // Handle error
-          console.error('Password change failed:', response.msg);
-          // Optionally, show an error message to the user
+          console.log(this.passwords)
+          console.log(response)
+          alert(`Password change failed: ${response.msg}`); 
         }
       },
       (error) => {
-        // Handle network or other errors
-        console.error('API call error:', error);
-        // Optionally, show an error message to the user
+        alert('API call error: ' + error); 
       }
     );
-    await this.modalController.dismiss(this.passwords);
   }
 }

@@ -28,8 +28,9 @@ export class RegisterPage implements OnInit {
     if (this.registerForm.valid) {
       const email = this.registerForm.value.email;
       const pwd = this.registerForm.value.pwd;
+      const name = this.registerForm.value.name;
       const action = "registeruser";
-      const data = "&apikey="+this.initid+"&usname="+email+"&pwd="+pwd+"&userid="+this.initcode;
+      const data = "&apikey="+this.initid+"&usname="+email+"&pwd="+pwd+"&name="+name+"&userid="+this.initcode;
       this.api.getData(action, data).then(
         (response:any) => {
           console.log(response);
