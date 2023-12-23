@@ -11,7 +11,7 @@
     <ion-row class="ion-align-items-center">
       <ion-col size="3" *ngFor="let category of categories">
         <div class="category-card" animated="true" (click)="routetoproduct(category)">
-          <img class="category-avatar" [src]="'http://127.0.0.1/grocery-app/backend/' + category.img" alt="{{category.name}}" />
+          <img class="category-avatar" [src]="'http://ec2-51-20-121-181.eu-north-1.compute.amazonaws.com/backend/' + category.img" alt="{{category.name}}" />
           <div class="category-title">{{category.name}}</div>
         </div>
       </ion-col>

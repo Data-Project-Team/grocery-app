@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  serverUrl = 'http://16.16.64.199/backend/api.php';
+  serverUrl = 'http://ec2-51-20-121-181.eu-north-1.compute.amazonaws.com/backend/api.php';
   apikey = '&apikey=' + localStorage.getItem("usr_apikey");
   constructor(private http: HttpClient) { }
 

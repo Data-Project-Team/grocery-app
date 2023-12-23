@@ -51,4 +51,10 @@ export class PaymentMethodChangeComponent {
 
     
   }
+  
+  cancel() {
+    this.modalController.dismiss(null, 'cancel');
+  }
+
+
 }

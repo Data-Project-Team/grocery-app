@@ -40,4 +40,7 @@ export class AddressChangeComponent {
   );
   await this.modalController.dismiss(this.address);
 }
+cancel() {
+  this.modalController.dismiss(null, 'cancel');
+}
 }

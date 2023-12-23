@@ -58,4 +58,7 @@ export class SettingsComponent {
       }
     );
   }
+  cancel() {
+    this.modalController.dismiss(null, 'cancel');
+  }
 }

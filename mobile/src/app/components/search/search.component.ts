@@ -3,6 +3,7 @@ import { SearchService } from '../../services/search.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { filter } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 
 
 
@@ -33,21 +34,47 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSearch(event:any) {
-    const term = event.target.value;
-    // Clear previous search results
+  onSearch(event: any) {
+    const input = event.target.value;
     this.searchResults = [];
-    this.search.searchProducts(term)
-      .then((response: any) => {
-          if(response.msg === 'success'){
-            this.searchResults = response.data
-          }  
-        },
-        (error) => {
-          console.log('Not found');
-        }
-      );  
+  
+    let searchTerm = '';
+    let minPrice: number | undefined;
+    let maxPrice: number | undefined;
+  
+    // Extracting search term and price range
+    const inputArray = input.split(' ');
+  
+    if (inputArray.length > 0) {
+      searchTerm = inputArray.shift() || ''; // Extracting the first element as the search term
+  
+      // Joining remaining elements to handle space-separated price range
+      const remainingInput = inputArray.join(' ');
+  
+      // Extracting numerical values as price range
+      const priceRange = remainingInput.match(/\d+(\.\d+)?/g);
+      if (priceRange && priceRange.length === 2) {
+        minPrice = parseFloat(priceRange[0]);
+        maxPrice = parseFloat(priceRange[1]);
+      }
     }
+  
+    const searchParams = {
+      term: searchTerm,
+      min_price: minPrice,
+      max_price: maxPrice
+    };
+  
+    this.search.searchProducts(searchParams)
+      .then((response: any) => {
+        if (response.msg === 'success') {
+          this.searchResults = response.data;
+        }
+      })
+      .catch((error) => {
+        console.log('Not found');
+      });
+  }
     onKeyPress(event: KeyboardEvent) {
       if (event.key === 'Enter') {
         // Navigate to the product page with all searched products

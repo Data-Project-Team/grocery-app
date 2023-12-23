@@ -61,10 +61,8 @@ ion-card-content > span{
         .item-img {
             width:100%;
             height: 100px;
-            object-fit:cover;
-            border-radius: 20px;
-            background-color: #cdcdcd;
-            
+            object-fit:contain;
+            border-radius: 20px;   
         }
         .like {
             margin-right: 0.5rem;
@@ -76,7 +74,7 @@ ion-card-content > span{
         
     }
     ion-card{
-        width: 10.5rem;
+        min-width: 10rem;
         margin: 0;
         box-shadow: none;
     }
@@ -96,10 +94,8 @@ ion-card-content > span{
         .item-img {
             width:100%;
             height: 6rem;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 20px;
-            background-color: #cdcdcd;
-            
         }
         .like {
             margin-right: 0.5rem;
@@ -113,7 +109,7 @@ ion-card-content > span{
     }
     ion-card{
         margin: 0 10px 0 0;
-        width: 8rem;
+        min-width: 8rem;
         box-shadow: none;
     }
 

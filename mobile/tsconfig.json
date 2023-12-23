@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types": ["node", "jasmine"],
+    "types": ["node"],
     "typeRoots": ["node_modules/@types"],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
