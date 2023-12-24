@@ -16,10 +16,16 @@ export class SearchService {
 
   constructor(public api : ApiService) { }
   searchProducts(searchParams: any) {
-    const { term, min_price, max_price } = searchParams;
+    const { term, min_price = '', max_price = '' } = searchParams;
     const action = "search";
-    const data = '&term='+ term +'&min_price='+min_price  + '&max_price='+max_price;
-
+    let data = ``;
+    if (term !== '' ) {
+      data += `&term=${term}`;
+    }
+    
+    if (min_price !== '' && max_price !== '') {
+      data += `&min_price=${min_price}&max_price=${max_price}`;
+    }
     return this.api.getData(action, data);
     
   }

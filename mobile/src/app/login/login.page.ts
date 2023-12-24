@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
 
   login() {
 
-    const usr_code = localStorage.getItem("usr_code");
+    const usr_code = localStorage.getItem("usr_initcode");
     const action = "loginuser";
     const data =
       "&usname=" + this.formData.email +
@@ -32,6 +32,7 @@ export class LoginPage implements OnInit {
       (response: any) => {
 
         if (response.msg === "success") {
+          localStorage.removeItem('usr_initcode');
           localStorage.setItem("usr_email", response.data.USR_EMAIL);
           localStorage.setItem("usr_apikey", response.data.USR_APIKEY);
           localStorage.setItem("usr_code", response.data.USR_CODE);

@@ -14,14 +14,16 @@ export class AppComponent {
       this.data.initApp(action)
     .then(function (response:any){
       localStorage.setItem("usr_apikey", response.data.initcode);
-      localStorage.setItem("usr_code",response.data.initid);
+      localStorage.setItem("usr_initcode",response.data.initid);
+      localStorage.setItem("usr_cipher",response.data.initcipher);
       console.log("success init");
     });
     
     }
     const key = localStorage.getItem("usr_apikey");
     const id = localStorage.getItem("usr_code");
-    if (key && id !== '1') {
+    const cipher = localStorage.getItem("usr_cipher");
+    if (key && id && cipher === '1' ) {
       this.router.navigate(['pages/hometab'],{replaceUrl: true});
     }else{
       this.router.navigate(['login'],{replaceUrl: true});

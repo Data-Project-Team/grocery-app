@@ -15,7 +15,7 @@ class getusercart  extends REST
 
             $stmt = $sql->Execute($sql->Prepare("
             SELECT c.CART_ID, c.USR_CODE, c.PROD_ID, c.CART_QUANTITY,
-            p.PROD_NAME, p.PROD_FINAL_AMOUNT, p.PROD_DISCOUNT, p.CTG_ID, p.PROD_IMAGE
+            p.*
             FROM app_cart c
             INNER JOIN app_products p ON c.PROD_ID = p.PROD_ID
             WHERE c.USR_CODE = ?"), array($usrCode));

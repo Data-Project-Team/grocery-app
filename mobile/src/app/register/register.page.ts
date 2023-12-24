@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
   initid = localStorage.getItem("usr_apikey");
-  initcode = localStorage.getItem("usr_code");
+  initcode = localStorage.getItem("usr_initcode");
   
   
   constructor(private api: ApiService, private formBuilder: FormBuilder, private router: Router) {
@@ -30,14 +30,15 @@ export class RegisterPage implements OnInit {
       const pwd = this.registerForm.value.pwd;
       const name = this.registerForm.value.name;
       const action = "registeruser";
-      const data = "&apikey="+this.initid+"&usname="+email+"&pwd="+pwd+"&name="+name+"&userid="+this.initcode;
+      const data = "&apikey="+this.initid+"&email="+email+"&pwd="+pwd+"&name="+name+"&userid="+this.initcode;
       this.api.getData(action, data).then(
         (response:any) => {
           console.log(response);
 
           if(response.msg ==="success"){
+            localStorage.clear();
             localStorage.setItem("usr_apikey", response.data.USR_APIKEY);
-            localStorage.setItem("usr_code", response.data.USR_CODE);
+            localStorage.setItem("usr_initcode", response.data.USR_CODE);
             this.router.navigate(['login']);
           }
         }

@@ -13,12 +13,12 @@ class loginuser extends REST{
         $crypt = new Crypt();
         $password = $crypt->loginPassword($this->usname,$this->pwd);
         
-        $stmt = $sql->Execute($sql->Prepare("SELECT USR_CODE,USR_EMAIL,USR_APIKEY FROM app_users WHERE USR_USERNAME=".$sql->Param('a')." AND USR_PASSWORD=".$sql->Param('b')." AND USR_STATUS=".$sql->Param('c')." "),array($this->usname,$password,'1') , ("UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_USERNAME=".$sql->Param('a')."" ));
+        $stmt = $sql->Execute($sql->Prepare("SELECT USR_CODE,USR_EMAIL,USR_APIKEY FROM app_users WHERE USR_EMAIL=".$sql->Param('a')." AND USR_PASSWORD=".$sql->Param('b')." AND USR_STATUS=".$sql->Param('c')." "),array($this->usname,$password,'1') , ("UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_EMAIL=".$sql->Param('a')."" ));
 
         if($stmt->RecordCount() > 0){
             $result = $stmt->FetchRow();
 
-            $updateQuery = "UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_USERNAME = ?";
+            $updateQuery = "UPDATE app_users SET USR_LOGIN_STATUS = '1' WHERE USR_EMAIL = ?";
             $sql->Execute($sql->Prepare($updateQuery), array($this->usname));
             
             $userapikey = $result['USR_APIKEY'];

@@ -13,7 +13,7 @@ class getuserinfo extends REST {
         if (isset($this->usrCode)) {
             $usrCode = $this->usrCode;
 
-            $stmt = $sql->Prepare("SELECT USR_FIRSTNAME, USR_OTHERNAME, USR_EMAIL, USR_PHOTO , USR_LOGIN_STATUS FROM app_users WHERE USR_CODE = ?");
+            $stmt = $sql->Prepare("SELECT USR_USERNAME, USR_EMAIL, USR_PHOTO , USR_LOGIN_STATUS FROM app_users WHERE USR_CODE = ?");
             $result = $sql->Execute($stmt, array($usrCode));
 
             if ($result && $result->RecordCount() > 0) {
@@ -23,8 +23,7 @@ class getuserinfo extends REST {
                     $photoBase64 = 'data:image/jpeg;base64,' . base64_encode($row['USR_PHOTO']);
                 }
                 $userInfo = array(
-                    'firstname' => $row['USR_FIRSTNAME'],
-                    'lastname' => $row['USR_OTHERNAME'],
+                    'username' => $row['USR_USERNAME'],
                     'email' => $row['USR_EMAIL'],
                     'loginstatus' => $row['USR_LOGIN_STATUS'],
                     'photo' => $photoBase64

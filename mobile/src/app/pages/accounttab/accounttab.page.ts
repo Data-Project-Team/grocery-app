@@ -108,7 +108,8 @@ export class AccounttabPage implements OnInit {
             this.api.initApp(action)
           .then(function (response:any){
             localStorage.setItem("usr_apikey", response.data.initcode);
-            localStorage.setItem("usr_code",response.data.initid);
+            localStorage.setItem("usr_initcode",response.data.initid);
+            localStorage.setItem("usr_cipher",response.data.initcipher);
           });
           this.router.navigate(['login']);
         }

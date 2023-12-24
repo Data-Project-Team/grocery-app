@@ -38,25 +38,23 @@ export class SearchComponent implements OnInit {
     const input = event.target.value;
     this.searchResults = [];
   
-    let searchTerm = '';
+    let searchTerm: string = '';
     let minPrice: number | undefined;
     let maxPrice: number | undefined;
   
-    // Extracting search term and price range
-    const inputArray = input.split(' ');
+    // Check if the input contains a number and a hyphen (to infer it's a price range)
+    const containsPriceRange = /\d+\s*-\s*\d+/.test(input);
   
-    if (inputArray.length > 0) {
-      searchTerm = inputArray.shift() || ''; // Extracting the first element as the search term
-  
-      // Joining remaining elements to handle space-separated price range
-      const remainingInput = inputArray.join(' ');
-  
-      // Extracting numerical values as price range
-      const priceRange = remainingInput.match(/\d+(\.\d+)?/g);
+    if (containsPriceRange) {
+      // Extracting the price range
+      const priceRange = input.match(/\d+(\.\d+)?/g);
       if (priceRange && priceRange.length === 2) {
         minPrice = parseFloat(priceRange[0]);
         maxPrice = parseFloat(priceRange[1]);
       }
+    } else {
+      // If no price range detected, consider the whole input as the search term
+      searchTerm = input.trim();
     }
   
     const searchParams = {
@@ -74,14 +72,14 @@ export class SearchComponent implements OnInit {
       .catch((error) => {
         console.log('Not found');
       });
-  }
+  }  
     onKeyPress(event: KeyboardEvent) {
-      if (event.key === 'Enter') {
-        // Navigate to the product page with all searched products
+      console.log(this.searchResults);
+      console.log(event.key);
+      if (event.key === 'Enter' && this.searchResults && this.searchResults.length > 0) {
         this.router.navigate(['pages/productspage'], { queryParams: { 
           products: JSON.stringify(this.searchResults) 
         } });
-
         
       }
       
