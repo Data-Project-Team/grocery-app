@@ -15,33 +15,36 @@ export class ApiService {
     var httpHeader = {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
     };
-    const payload = 'actions='+ action;
-    return new Promise((resolve, rejects)=>{
-      try {
-        this.http.post(this.serverUrl, payload, httpHeader).subscribe((res: any)=>{
-          resolve(res);
-        });
-      } catch (error) {
-        rejects(error);
-      }
-     
-    })
+    const payload = 'actions=' + action;
+    return new Promise((resolve, reject) => {
+      this.http.post(this.serverUrl, payload, httpHeader).subscribe({
+        next: (res) => resolve(res),
+          
+        error: (err) => {
+        console.error('Error occurred during initApp:', err);
+        reject(err)
+        }
+      });
+  });
   }
   getData(action:any, data: any)  {
     var httpHeader = {
       headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
     };
     const payload = this.apikey+'&actions='+ action + data;
-    return new Promise((resolve, rejects)=>{
-      try {
-        this.http.post(this.serverUrl, payload, httpHeader).subscribe((res: any)=>{
-          resolve(res);
-        });
-      } catch (error) {
-        rejects(error);
-      }
+    return new Promise((resolve, reject)=>{
+      this.http.post(this.serverUrl, payload, httpHeader).subscribe({
+        next: (res) => resolve(res),
+        error: (err) => reject(err)
+      });
      
     })
+
+    
   }
+
+  updateApiKey() {
+    this.apikey = '&apikey=' + localStorage.getItem("usr_apikey");
+  }  
 
 }

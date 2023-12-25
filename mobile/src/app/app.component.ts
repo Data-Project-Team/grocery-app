@@ -12,11 +12,15 @@ export class AppComponent {
     if (!localStorage.getItem("usr_apikey")){
       const action = "initapps";
       this.data.initApp(action)
-    .then(function (response:any){
-      localStorage.setItem("usr_apikey", response.data.initcode);
-      localStorage.setItem("usr_code",response.data.initid);
-      console.log("success init");
-    });
+  .then((response: any) => {
+    localStorage.setItem("usr_apikey", response.data.initcode);
+    localStorage.setItem("usr_code", response.data.initid);
+    this.data.updateApiKey(); // Call updateApiKey here
+    console.log("success init");
+  })
+  .catch(error => {
+    console.error("Error during initialization:", error);
+  });
     
     }
   //   const key = localStorage.getItem("usr_apikey");
