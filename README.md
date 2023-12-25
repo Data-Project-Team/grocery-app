@@ -21,7 +21,7 @@ The Grocery Shop application integrates database functionality with web/mobile t
 
 The repository is organized as follows:
 
-- `frontend/`: Contains the Ionic Angular code for the frontend.
+- `mobile/`: Contains the Ionic Angular code for the frontend.
 - `backend/`: Includes the PHP files constituting the RESTful API backend.
 - `database/`: Contains the database schema.
 
